@@ -2,7 +2,7 @@
 ## Current Roles 
 ### Art: Jack
 - Come up with a art style for the game
-### Music: Santosh
-- See who would be willing to collab with us on the game
+### Music: Santhosh
+- Music Makers are onboard to produce the game's soundtrack. Jack is working with them on the creative vision.
 ### Coding: Brian, Xin
 - Come up with what needs to be coded
