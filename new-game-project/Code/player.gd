@@ -11,14 +11,18 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * (1 + (Global.stage - 1) / 2.0)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED * (1 + (Global.stage - 1) / 2.0)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func changeStage():
+	self.scale.x = (1 + (Global.stage - 1) / 2.0)
+	self.scale.y = (1 + (Global.stage - 1) / 2.0)
