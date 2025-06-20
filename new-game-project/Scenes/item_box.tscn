@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb1isn0udac5l"]
+
+[ext_resource type="Script" uid="uid://x1f6hsm80ds2" path="res://Code/item_box.gd" id="1_b2omr"]
+[ext_resource type="Texture2D" uid="uid://drvve0lxeref3" path="res://Art/icon.svg" id="1_oem4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(57, 68)
+
+[node name="ItemBox" type="Area2D"]
+script = ExtResource("1_b2omr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -1)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.320313, 0.414063)
+texture = ExtResource("1_oem4c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
