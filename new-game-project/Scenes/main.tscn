@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=6 format=3 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://drvve0lxeref3" path="res://Art/icon.svg" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_jjvhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 size = Vector2(128.421, 148)
@@ -24,3 +25,6 @@ shape = SubResource("RectangleShape2D_bo1nx")
 
 [node name="Victory" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(1209, 245)
+
+[node name="DeathBox" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(615, 718)
