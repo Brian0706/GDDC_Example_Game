@@ -32,4 +32,4 @@ position = Vector2(1209, 245)
 position = Vector2(615, 718)
 
 [node name="ItemBox" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(452, 202)
+position = Vector2(645, 139)
