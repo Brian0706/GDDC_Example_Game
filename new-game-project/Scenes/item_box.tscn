@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb1isn0udac5l"]
+[gd_scene load_steps=9 format=3 uid="uid://cb1isn0udac5l"]
 
 [ext_resource type="Script" uid="uid://x1f6hsm80ds2" path="res://Code/item_box.gd" id="1_b2omr"]
 [ext_resource type="Texture2D" uid="uid://drvve0lxeref3" path="res://Art/icon.svg" id="1_oem4c"]
+[ext_resource type="PackedScene" uid="uid://b7ct4t2omdyn0" path="res://Scenes/special_item.tscn" id="2_samsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
-size = Vector2(57, 68)
+size = Vector2(35, 45)
 
 [sub_resource type="Animation" id="Animation_b2omr"]
 resource_name = "GetItem"
@@ -47,10 +48,11 @@ size = Vector2(35, 47)
 
 [node name="ItemBox" type="Area2D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_b2omr")
+item = ExtResource("2_samsn")
 animation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -1)
+position = Vector2(-0.5, 10.5)
 shape = SubResource("RectangleShape2D_jjvhh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
