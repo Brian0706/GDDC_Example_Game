@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 150.0
 var direction = -1
 
+func killed():
+	call_deferred("queue_free")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

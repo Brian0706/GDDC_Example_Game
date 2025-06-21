@@ -18,4 +18,4 @@ func _physics_process(delta: float) -> void:
 
 func consume():
 	Global.changeStage(1)
-	call_deferred("queue_free");
+	call_deferred("queue_free")

@@ -41,3 +41,10 @@ func _on_hit_detection_body_entered(body: Node2D) -> void:
 		body.consume()
 	if (body.is_in_group("Enemy")):
 		takeDamage()
+
+
+func _on_attack_detection_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("Items")):
+		body.consume()
+	if (body.is_in_group("Enemy")):
+		body.killed()
