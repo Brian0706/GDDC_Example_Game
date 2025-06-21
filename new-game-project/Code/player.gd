@@ -32,9 +32,12 @@ func changeStage():
 
 func takeDamage():
 	if (timeSinceLastHit > invulnerability):
-		print("ouch")
+		Global.changeStage(-1)
+		timeSinceLastHit = 0
 
 
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
 		body.consume()
+	if (body.is_in_group("Enemy")):
+		takeDamage()
