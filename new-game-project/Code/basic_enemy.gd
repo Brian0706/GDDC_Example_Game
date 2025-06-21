@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-var direction = 1
+const SPEED = 150.0
+var direction = -1
 
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +15,3 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction * SPEED
 
 	move_and_slide()
-
-func consume():
-	Global.changeStage(1)
-	call_deferred("queue_free");
