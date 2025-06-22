@@ -20,6 +20,8 @@ position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="HitDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]
 position = Vector2(0, 0.5)
@@ -32,6 +34,8 @@ texture = ExtResource("1_4flbx")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AttackDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
 position = Vector2(0, 33)
