@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://c54nfbrhwnhd"]
+
+[ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_6bp64"]
+[ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://c3oxakcg3nhmb" path="res://Scenes/platform.tscn" id="4_344ge"]
+[ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cb1isn0udac5l" path="res://Scenes/item_box.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://d3hvdx0eu2wso" path="res://Scenes/wall.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://250xtkjd2mjg" path="res://Scenes/basic_enemy.tscn" id="8_344ge"]
+
+[node name="Controller" type="Node2D"]
+script = ExtResource("1_6bp64")
+
+[node name="ItemBox" parent="." instance=ExtResource("5_kry3j")]
+position = Vector2(582, 149)
+
+[node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(5, 284)
+
+[node name="Platform" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(581, 399)
+
+[node name="Victory" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(1940, 7)
+nextLevel = "res://Scenes/main.tscn"
+
+[node name="DeathBox" parent="." instance=ExtResource("4_jjvhh")]
+position = Vector2(615, 718)
+
+[node name="Wall" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(1390, 267)
+
+[node name="Wall2" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(311, 346)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("8_344ge")]
+position = Vector2(1109, 314)
+
+[node name="Platform2" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(1814, 115)
+scale = Vector2(2.64454, 0.5)
