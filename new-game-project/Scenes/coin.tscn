@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://doilvwcf145cv"]
+
+[ext_resource type="SpriteFrames" path="C:/Users/heinz/Desktop/CS_Projects/GDDC_Example_Game/new-game-project/Art/placeholder_coin.png" id="1_2qo34"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgi06"]
+radius = 5.09902
+
+[node name="Coin" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jgi06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = ExtResource("1_2qo34")
+frame_progress = 0.864754

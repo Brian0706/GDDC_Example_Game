@@ -17,6 +17,7 @@ script = ExtResource("1_cvnsp")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0.5)
+scale = Vector2(1.02741, 0.989448)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="HitDetection" type="Area2D" parent="."]
