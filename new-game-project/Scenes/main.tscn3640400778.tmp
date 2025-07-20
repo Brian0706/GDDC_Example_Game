@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=10 format=3 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cofvlr1lfu68r" path="res://Scenes/killing_obstacles.tscn" id="2_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="3_8gbba"]
-[ext_resource type="PackedScene" uid="uid://doilvwcf145cv" path="res://Scenes/coin.tscn" id="3_d1ilt"]
-[ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://c3oxakcg3nhmb" path="res://Scenes/platform.tscn" id="4_344ge"]
 [ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cb1isn0udac5l" path="res://Scenes/item_box.tscn" id="5_kry3j"]
@@ -17,12 +15,15 @@ script = ExtResource("1_6bp64")
 
 [node name="Spikes" parent="." instance=ExtResource("2_ynf5e")]
 position = Vector2(183, 264)
-scale = Vector2(2.51033, 2.51033)
+scale = Vector2(10.4737, 10.4737)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("3_hptm8")]
-visible = false
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ItemBox" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(582, 149)
@@ -53,8 +54,4 @@ position = Vector2(1138, 308)
 position = Vector2(1814, 115)
 scale = Vector2(2.64454, 0.5)
 
-[node name="Coins" type="Node2D" parent="."]
-
-[node name="Coin1" parent="Coins" instance=ExtResource("3_d1ilt")]
-position = Vector2(311, 154)
-scale = Vector2(10.4737, 10.4737)
+[node name="DeathCrystal" type="Area2D" parent="." groups=["LethalObjects"]]
