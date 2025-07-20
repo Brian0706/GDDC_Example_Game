@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cofvlr1lfu68r"]
+[gd_scene load_steps=3 format=3 uid="uid://cofvlr1lfu68r"]
 
+[ext_resource type="Script" uid="uid://bccuwnyiyvlsw" path="res://Code/killing_obstacles.gd" id="1_8hksi"]
 [ext_resource type="Texture2D" uid="uid://c32idnpreiv4t" path="res://Art/placeholder_item_crystal_blue.png" id="1_gwwj3"]
 
 [node name="Spikes" type="Node2D" groups=["LethalObjects"]]
+script = ExtResource("1_8hksi")
 
 [node name="Area2D" type="Area2D" parent="." groups=["LethalObjects"]]
 
@@ -14,3 +16,5 @@ texture = ExtResource("1_gwwj3")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" groups=["LethalObjects"]]
 position = Vector2(1, -5.96047e-07)
 polygon = PackedVector2Array(2, -3, 3, -2, 3, 1, 4, 1, 4, 3, 2, 5, -2, 5, -3, 4, -3, 3, -4, 1, -4, -1, -2, -4, 0, -2, 2, -3)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

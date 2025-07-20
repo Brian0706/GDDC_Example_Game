@@ -14,3 +14,7 @@ func _on_button_pressed() -> void:
 	print("'New Game' button pressed")
 	Global.reset_game_state()
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().quit()	
