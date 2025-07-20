@@ -10,13 +10,14 @@ size = Vector2(50, 51)
 size = Vector2(66, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
-size = Vector2(66, 12)
+size = Vector2(66, 5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0.5)
+scale = Vector2(1.02741, 0.989448)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="HitDetection" type="Area2D" parent="."]
@@ -38,7 +39,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
-position = Vector2(0, 33)
+position = Vector2(0, 34.5)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [connection signal="body_entered" from="HitDetection" to="." method="_on_hit_detection_body_entered"]
