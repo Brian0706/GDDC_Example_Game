@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://c32idnpreiv4t" path="res://Art/placeholder_item_crystal_blue.png" id="1_gwwj3"]
 
-[node name="Spikes" type="Node2D"]
+[node name="Spikes" type="Node2D" groups=["LethalObjects"]]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["LethalObjects"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" groups=["LethalObjects"]]
 position = Vector2(1, -5.68434e-14)
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("1_gwwj3")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" groups=["LethalObjects"]]
 position = Vector2(1, -5.96047e-07)
 polygon = PackedVector2Array(2, -3, 3, -2, 3, 1, 4, 1, 4, 3, 2, 5, -2, 5, -3, 4, -3, 3, -4, 1, -4, -1, -2, -4, 0, -2, 2, -3)
