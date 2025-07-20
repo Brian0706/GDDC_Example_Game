@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 600.0
 const JUMP_VELOCITY = -500.0
-const invulnerability = 0.5
+const INVULNERABILITY = 0.5
 var timeSinceLastHit = 1
 
 func _physics_process(delta: float) -> void:
@@ -30,7 +30,10 @@ func changeStage():
 	self.scale.y = (1 + (Global.stage - 1) / 2.0)
 
 func takeDamage():
-	if (timeSinceLastHit > invulnerability):
+	if (timeSinceLastHit > INVULNERABILITY):
+		Global.current_lives -= 1
+		if (Global.current_lives < 1):
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 		Global.changeStage(-1)
 		timeSinceLastHit = 0
 
