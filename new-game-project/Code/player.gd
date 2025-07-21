@@ -42,7 +42,10 @@ func takeDamage():
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
 		body.consume()
-	if (body.is_in_group("Enemy") || body.is_in_group("LethalObjects")) :
+	if (body.is_in_group("Enemy")):
+		takeDamage()
+	if (body.is_in_group("LethalObjects")):
+		print("Lethal Objects triggered")
 		takeDamage()
 	
 

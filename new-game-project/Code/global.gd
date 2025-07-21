@@ -23,3 +23,6 @@ func reset_game_state() -> void:
 	current_money = STARTING_MONEY
 	stage = STARTING_STAGE
 	hasPowerUp = false;
+
+func death_handler() -> void:
+	pass
