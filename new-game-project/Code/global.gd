@@ -9,6 +9,7 @@ var player = null
 var hasPowerUp = false
 var current_money = 0
 var stage = 1
+var lives = 1
 
 func changeStage(change: int) -> void:
 	print("Change stage is called.")

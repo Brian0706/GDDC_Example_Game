@@ -32,6 +32,8 @@ func playerChangeStage():
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
 		print("Damage taken!")
+		Global.lives -= 1
+		$"../../CanvasLayer/HUD".updateLivesLabel()
 		if (Global.hasPowerUp == false):
 			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 		else:
