@@ -11,4 +11,3 @@ func _on_body_entered(body: Node2D) -> void:
 		add_child(powerUP)
 		powerUP.position.y -= 20
 		print("got item!")
-		Global.hasPowerUp = true

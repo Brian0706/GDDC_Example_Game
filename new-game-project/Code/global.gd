@@ -10,14 +10,10 @@ var hasPowerUp = false
 var current_money = 0
 var stage = 1
 
-func changeStage(change: int) -> void:
-	print("Change stage is called.")
-	stage += change
-	if (stage == 0):
-		get_tree().reload_current_scene()
-		stage = 1
-		#current_lives -= 1
-	player.playerChangeStage()
+func changeStage(stageNum: int) -> void:
+	assert(stageNum < 1, "Stage number can't be less than 1.")		
+	stage = stageNum
+	print("Stage changed to " + str(stageNum))
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY

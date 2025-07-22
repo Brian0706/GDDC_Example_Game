@@ -17,5 +17,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func consume():
-	Global.changeStage(1)
+	Global.hasPowerUp = true
 	call_deferred("queue_free")
