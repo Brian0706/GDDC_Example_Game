@@ -2,6 +2,22 @@ extends CharacterBody2D
 
 signal player_damage_taken
 
+# DIRECTION CONSTANTS
+const DIR_LEFT = -1
+const DIR_NONE = 0
+const DIR_RIGHT = 1
+
+var floor_anims = {
+	DIR_LEFT : "walk_left",
+	DIR_NONE : "idle",
+	DIR_RIGHT : "walk_right"
+}
+var air_anims = {
+	DIR_LEFT : "jump_left",
+	DIR_NONE : "jump_straight",
+	DIR_RIGHT : "jump_right"
+}
+
 const SPEED = 600.0
 const JUMP_VELOCITY = -500.0
 const INVULNERABILITY = 0.5
@@ -42,20 +58,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_animation(direction)
 
-# HOLY YANDERE DEV CODE
 func _update_animation(direction: float) -> void:
-	if (Input.is_action_just_pressed("jump") and is_on_floor()):
-		animations.play("jump_straight")
-	elif (direction > 0 && is_on_floor()):
-		animations.play("walk_right")
-	elif (direction < 0 && is_on_floor() ):
-		animations.play("walk_left")
-	elif (direction > 0):
-		animations.play("jump_right")
-	elif (direction < 0):
-		animations.play("jump_left")
-	else:
-		animations.play("idle")
+	# HOLY YANDERE DEV CODE
+	#if (Input.is_action_just_pressed("jump") and is_on_floor()):
+		#animations.play("jump_straight")
+	#elif (direction > 0 && is_on_floor()):
+		#animations.play("walk_right")
+	#elif (direction < 0 && is_on_floor() ):
+		#animations.play("walk_left")
+	#elif (direction > 0):
+		#animations.play("jump_right")
+	#elif (direction < 0):
+		#animations.play("jump_left")
+	#else:
+		#animations.play("idle")
+	var dir = int(sign(direction))  # maps any negative to –1, zero to 0, positive to +1
+	var anims = floor_anims if is_on_floor() else air_anims
+	animations.play(anims[dir])
 
 func _update_size() -> void:
 	self.scale.x = powerUpModifier
