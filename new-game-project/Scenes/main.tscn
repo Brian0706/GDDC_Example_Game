@@ -56,7 +56,6 @@ scale = Vector2(2.64454, 0.5)
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin1" parent="Coins" instance=ExtResource("3_d1ilt")]
-visible = false
 position = Vector2(311, 154)
 scale = Vector2(10.4737, 10.4737)
 
