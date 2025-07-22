@@ -22,3 +22,11 @@ func reset_game_state() -> void:
 
 func death_handler() -> void:
 	pass
+	
+func _on_powerup_collected() -> void:
+	hasPowerUp = true
+func _on_player_damage_taken() -> void:
+	if (Global.hasPowerUp == false):
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	else:
+		Global.hasPowerUp = false

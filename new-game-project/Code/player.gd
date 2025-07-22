@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_damage_taken
+
 const SPEED = 600.0
 const JUMP_VELOCITY = -500.0
 const INVULNERABILITY = 0.5
@@ -11,12 +13,11 @@ var powerUpModifier:
 	get:
 		return (1 + (2 - 1) / 2.0) if Global.hasPowerUp else (1 + (1 - 1) / 2.0)
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
- 
-func _ready() -> void:
-	self.scale.x = powerUpModifier
-	self.scale.y = powerUpModifier
 
-func updateSize() -> void:
+func _connect_item_to_signals() -> void:
+	self.player_damage_taken.connect(Global._on_player_damage_taken)
+
+func _ready() -> void:
 	self.scale.x = powerUpModifier
 	self.scale.y = powerUpModifier
 
@@ -39,9 +40,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	_updateAnimation(direction)
-	
-func _updateAnimation(direction: float) -> void:
+	_update_animation(direction)
+
+# HOLY YANDERE DEV CODE
+func _update_animation(direction: float) -> void:
 	if (Input.is_action_just_pressed("jump") and is_on_floor()):
 		animations.play("jump_straight")
 	elif (direction > 0 && is_on_floor()):
@@ -54,28 +56,31 @@ func _updateAnimation(direction: float) -> void:
 		animations.play("jump_left")
 	else:
 		animations.play("idle")
-		
-func playerChangeStage():
-	self.scale.x = 1.5
-	self.scale.y = 1.5
-	print("Scale:", self.scale)
-	print(powerUpModifier)
+
+func _update_size() -> void:
+	self.scale.x = powerUpModifier
+	self.scale.y = powerUpModifier
+
+func _on_powerup_collected() -> void:
+	_update_size()
+	pass
 
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
-		print("Damage taken!")
 		if (Global.hasPowerUp == false):
-			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		else:
 			Global.hasPowerUp = false
-			updateSize()
-		# Global.changeStage(-1)
+		_update_size()
+		emit_signal("player_damage_taken")
 		timeSinceLastHit = 0
+		print("Damage taken!")
+
 
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
 		body.consume()
-		playerChangeStage()
+		_update_size()
 	if (body.is_in_group("Enemy")):
 		takeDamage()
 	if (body.is_in_group("LethalObjects")):
@@ -88,3 +93,4 @@ func _on_attack_detection_body_entered(body: Node2D) -> void:
 		body.consume()
 	if (body.is_in_group("Enemy")):
 		body.killed()
+		print("Dealt damage!")

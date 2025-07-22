@@ -27,7 +27,7 @@ visible = false
 [node name="ItemBox" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(582, 149)
 
-[node name="Player" parent="." instance=ExtResource("1_jjgbg")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jjgbg")]
 position = Vector2(5, 284)
 
 [node name="Platform" parent="." instance=ExtResource("4_344ge")]
@@ -56,5 +56,10 @@ scale = Vector2(2.64454, 0.5)
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin1" parent="Coins" instance=ExtResource("3_d1ilt")]
+visible = false
 position = Vector2(311, 154)
+scale = Vector2(10.4737, 10.4737)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_d1ilt")]
+position = Vector2(692, 153)
 scale = Vector2(10.4737, 10.4737)

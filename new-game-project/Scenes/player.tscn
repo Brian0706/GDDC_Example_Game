@@ -184,7 +184,7 @@ visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_8erm5")
 animation = &"walk_right"
-frame_progress = 0.697128
+frame_progress = 0.63721
 
 [node name="AttackDetection" type="Area2D" parent="."]
 visible = false
