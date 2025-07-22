@@ -149,7 +149,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="BasicEnemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="BasicEnemy" type="CharacterBody2D" groups=["Enemy", "EnemyHurtbox"]]
 scale = Vector2(1, 1.01797)
 collision_layer = 2
 script = ExtResource("1_fecjr")

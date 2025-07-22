@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
+signal powerup_collected
 
 const SPEED = 300.0
 var direction = 1
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -17,5 +17,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func consume():
-	Global.changeStage(1)
+	emit_signal("powerup_collected")
 	call_deferred("queue_free")
+	print("Special item picked up!")
