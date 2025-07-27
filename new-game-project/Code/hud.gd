@@ -4,6 +4,9 @@ extends Control
 @onready var stageLabel = $CanvasLayer/HBoxContainer/StageLabel
 @onready var livesLabel = $CanvasLayer/HBoxContainer/LivesLabel
 
+func _ready() -> void:
+	updateLivesLabel()
+
 # Updates respective labels when prompted
 
 func updateScoreLabel():
@@ -13,4 +16,4 @@ func updateStageLabel():
 	stageLabel.text = "STAGE - " + str(Global.stage)
 
 func updateLivesLabel():
-	livesLabel.text = "Lives: " + '2' if Global.hasPowerUp else '1'
+	livesLabel.text = "Lives: " + ('2' if Global.hasPowerUp else '1')
