@@ -9,6 +9,7 @@ var player = null
 var hasPowerUp = false
 var current_money = 0
 var stage = 1
+var lives = 1
 
 func changeStage(stageNum: int) -> void:
 	assert(stageNum < 1, "Stage number can't be less than 1.")		

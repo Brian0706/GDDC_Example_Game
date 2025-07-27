@@ -86,6 +86,12 @@ func _on_powerup_collected() -> void:
 
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
+<<<<<<< HEAD
+=======
+		print("Damage taken!")
+		Global.lives -= 1
+		$"../../CanvasLayer/HUD".updateLivesLabel()
+>>>>>>> San_UI_Updates
 		if (Global.hasPowerUp == false):
 			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		else:

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://xgpivjl6iwaa"]
+[gd_scene load_steps=3 format=3 uid="uid://xgpivjl6iwaa"]
 
 [ext_resource type="Script" uid="uid://380ma0s61rq" path="res://Code/hud.gd" id="1_e0onf"]
+
+[sub_resource type="GDScript" id="GDScript_e0onf"]
+script/source = "extends Label
+"
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -14,14 +18,20 @@ script = ExtResource("1_e0onf")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_right = 229.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_right = 114.5
 offset_bottom = 93.0
+grow_horizontal = 2
+alignment = 1
 
-[node name="CoinLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+[node name="LivesLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
-text = "COINS: 0"
+text = "LIVES: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -31,3 +41,12 @@ size_flags_vertical = 1
 text = "Stage - 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+text = "COINS: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_e0onf")
