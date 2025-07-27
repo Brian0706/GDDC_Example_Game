@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://3ulyxrycujua"]
+[gd_scene load_steps=24 format=3 uid="uid://3ulyxrycujua"]
 
 [ext_resource type="Texture2D" uid="uid://drvve0lxeref3" path="res://Art/icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://ba2qaxinumy57" path="res://Code/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bac6bfp36xa5m" path="res://Art/wolfie2-Sheet.png" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://dxel78k073vwc" path="res://Art/wolfie2-Sheet-right.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://dpbh6ho5u3f11" path="res://Art/wolfie2-Sheet-left.png" id="5_fkybt"]
 
@@ -13,15 +12,12 @@ size = Vector2(50, 51)
 size = Vector2(66, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
-atlas = ExtResource("3_6t5aa")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
-atlas = ExtResource("3_6t5aa")
 region = Rect2(224, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
-atlas = ExtResource("3_6t5aa")
 region = Rect2(240, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
@@ -33,11 +29,9 @@ atlas = ExtResource("4_vgqql")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
-atlas = ExtResource("3_6t5aa")
 region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
-atlas = ExtResource("3_6t5aa")
 region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
@@ -184,7 +178,6 @@ visible = false
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_8erm5")
 animation = &"walk_right"
-frame_progress = 0.63721
 
 [node name="AttackDetection" type="Area2D" parent="."]
 visible = false

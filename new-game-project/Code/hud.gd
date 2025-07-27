@@ -10,8 +10,7 @@ func updateScoreLabel():
 	coinLabel.text = "COINS: " + str(Global.current_money)
 
 func updateStageLabel():
-	stageLabel.text = "STAGE - " +str(Global.stage)
+	stageLabel.text = "STAGE - " + str(Global.stage)
 
 func updateLivesLabel():
 	livesLabel.text = "Lives: " + '2' if Global.hasPowerUp else '1'
-	
