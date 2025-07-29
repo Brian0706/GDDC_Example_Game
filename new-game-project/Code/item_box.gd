@@ -6,7 +6,8 @@ var animation: AnimationPlayer
 
 func _connect_item_to_signals(powerUP):
 	add_child(powerUP)
-	powerUP.powerup_collected.connect($"../Player"._on_powerup_collected)
+	# Use the absolute path as paths relative to the scene can change during development
+	powerUP.powerup_collected.connect($"/root/Controller/Player"._on_powerup_collected)
 	powerUP.powerup_collected.connect(Global._on_powerup_collected)
 
 func _on_body_entered(body: Node2D) -> void:
