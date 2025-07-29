@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=16 format=4 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
@@ -11,6 +11,64 @@
 [ext_resource type="PackedScene" uid="uid://cb1isn0udac5l" path="res://Scenes/item_box.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://d3hvdx0eu2wso" path="res://Scenes/wall.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://250xtkjd2mjg" path="res://Scenes/basic_enemy.tscn" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://mfu14d4px1k8" path="res://Art/wolfiespritesheet.png" id="12_6iyac"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdnlq"]
+texture = ExtResource("12_6iyac")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_6iyac"]
+scenes/2/scene = ExtResource("3_d1ilt")
+
+[sub_resource type="TileSet" id="TileSet_jkdf5"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_fdnlq")
+sources/1 = SubResource("TileSetScenesCollectionSource_6iyac")
 
 [node name="Controller" type="Node2D"]
 script = ExtResource("1_6bp64")
@@ -30,18 +88,12 @@ position = Vector2(582, 149)
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jjgbg")]
 position = Vector2(5, 284)
 
-[node name="Platform" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(581, 399)
-
 [node name="Victory" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(1940, 7)
 nextLevel = "res://Scenes/main.tscn"
 
 [node name="DeathBox" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(615, 718)
-
-[node name="Wall" parent="." instance=ExtResource("6_21xkr")]
-position = Vector2(1390, 267)
 
 [node name="Wall2" parent="." instance=ExtResource("6_21xkr")]
 position = Vector2(311, 346)
@@ -53,12 +105,8 @@ position = Vector2(1138, 308)
 position = Vector2(1814, 115)
 scale = Vector2(2.64454, 0.5)
 
-[node name="Coins" type="Node2D" parent="."]
-
-[node name="Coin1" parent="Coins" instance=ExtResource("3_d1ilt")]
-position = Vector2(311, 154)
-scale = Vector2(10.4737, 10.4737)
-
-[node name="Coin2" parent="Coins" instance=ExtResource("3_d1ilt")]
-position = Vector2(692, 153)
-scale = Vector2(10.4737, 10.4737)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD8/wcAAAAAAAAAAAD8/wgAAAAAAAEAAAD9/wgAAAAAAAEAAAD+/wgAAAAAAAEAAAD//wgAAAAAAAEAAAAAAAgAAAAAAAEAAAABAAgAAAAAAAEAAAACAAgAAAAAAAEAAAADAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAgAAAAAAAEAAAAPAAgAAAAAAAEAAAAQAAgAAAAAAAEAAAARAAgAAAAAAAEAAAASAAgAAAAAAAEAAAATAAgAAAAAAAEAAAAUAAgAAAAAAAEAAAAVAAgAAAAAAAEAAAAWAAgAAAAAAAEAAAAXAAgAAAAAAAEAAAAYAAgAAAAAAAEAAAAZAAgAAAAAAAEAAAAaAAgAAAAAAAEAAAAbAAgAAAAAAAEAAAD9/wcAAAABAAAAAAD+/wcAAAABAAAAAAD//wcAAAABAAAAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAACAAcAAAABAAAAAAADAAcAAAABAAAAAAAEAAcAAAABAAAAAAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAcAAAABAAAAAAAMAAcAAAABAAAAAAANAAcAAAABAAAAAAAOAAcAAAABAAAAAAAPAAcAAAABAAAAAAAQAAcAAAABAAAAAAARAAcAAAABAAAAAAASAAcAAAABAAAAAAATAAcAAAABAAAAAAAUAAcAAAABAAAAAAAVAAcAAAABAAAAAAAWAAcAAAABAAAAAAAXAAcAAAABAAAAAAAYAAcAAAABAAAAAAAZAAcAAAABAAAAAAAaAAcAAAABAAAAAAAbAAcAAAACAAAAAAAcAAYAAAABAAEAAAAcAAUAAAABAAEAAAAcAAQAAAABAAEAAAAcAAMAAAAAAAAAAAAdAAMAAAACAAAAAAAdAAQAAAABAAEAAAAdAAUAAAABAAEAAAAdAAYAAAABAAEAAAAdAAcAAAABAAEAAAAcAAcAAAAAAAAAAAAFAAMAAQAAAAAAAgAGAAMAAQAAAAAAAgAHAAMAAQAAAAAAAgAMAAQAAQAAAAAAAgA=")
+tile_set = SubResource("TileSet_jkdf5")

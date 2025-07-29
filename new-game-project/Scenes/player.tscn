@@ -12,7 +12,8 @@ size = Vector2(50, 51)
 size = Vector2(66, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("5_fkybt")
+region = Rect2(0, 0, 17, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 region = Rect2(224, 0, 16, 16)
@@ -177,7 +178,7 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_8erm5")
-animation = &"walk_right"
+animation = &"jump_straight"
 
 [node name="AttackDetection" type="Area2D" parent="."]
 visible = false

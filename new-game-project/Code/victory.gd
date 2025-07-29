@@ -12,7 +12,10 @@ func _process(delta: float) -> void:
 	# print(nextLevel)\
 	pass
 
+func nextScene() -> void:
+	get_tree().change_scene_to_file(nextLevel)
+
 func _on_body_entered(body: Node2D) -> void:
 	print("victory")
 	if (body.name == "Player" && nextLevel != ""):
-		get_tree().change_scene_to_file(nextLevel)
+		call_deferred("nextScene")
