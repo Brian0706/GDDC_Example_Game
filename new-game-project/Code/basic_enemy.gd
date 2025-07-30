@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction * SPEED
 	if rayCast.is_colliding():
 		direction *= -1
+		#By negating the scale we can flip the entire scene, include the raycast, not just the animation
 		self.scale.x *= -1
 
 	# ANIMATION SECTION
