@@ -18,7 +18,7 @@ script = ExtResource("1_6bp64")
 visible = false
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_jjgbg")]
-position = Vector2(5, 284)
+position = Vector2(5, 256)
 
 [node name="DeathBox" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(615, 718)
@@ -43,4 +43,4 @@ nextLevel = "res://Scenes/main.tscn"
 
 [connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27522" to="TileMapLayer/@Area2D@27522" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@40398" to="TileMapLayer/@Area2D@40398" method="_on_body_entered"]

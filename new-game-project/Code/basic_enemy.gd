@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-@onready var animations: AnimatedSprite2D= $AnimatedSprite2D
+@onready var animations: AnimatedSprite2D = $AnimatedSprite2D
+@onready var rayCast: RayCast2D = $WallCheck
 
 const SPEED = 150.0
-var direction = -1
+var direction = 1
 
 func killed():
 	call_deferred("queue_free")
@@ -14,16 +15,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	velocity.x = direction * SPEED
-	
-	# ANIMATION SECTION
-	if (direction > 0):
-		animations.play("walk_right_animation")
-	else:
-		animations.play("walk_left_animation")
-	if is_on_wall():
+	if rayCast.is_colliding():
 		direction *= -1
-		if (direction > 0):
-			animations.play("walk_right_animation")
-		else:
-			animations.play("walk_left_animation")
+		self.scale.x *= -1
+
+	# ANIMATION SECTION
+	animations.play("walk")
 	move_and_slide()
