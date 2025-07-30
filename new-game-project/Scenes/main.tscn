@@ -43,4 +43,4 @@ nextLevel = "res://Scenes/main.tscn"
 
 [connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@88887" to="TileMapLayer/@Area2D@88887" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@27522" to="TileMapLayer/@Area2D@27522" method="_on_body_entered"]
