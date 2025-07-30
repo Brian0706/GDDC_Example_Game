@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
-@onready var rayCast: RayCast2D = $WallCheck
+@onready var wallCheck: RayCast2D = $WallCheck
+@onready var pitCheck: RayCast2D = $PitCheck
 
 const SPEED = 150.0
 var direction = 1
@@ -15,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	velocity.x = direction * SPEED
-	if rayCast.is_colliding():
+	if wallCheck.is_colliding() or not pitCheck.is_colliding():
 		direction *= -1
 		#By negating the scale we can flip the entire scene, include the raycast, not just the animation
 		self.scale.x *= -1
