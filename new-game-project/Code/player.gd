@@ -3,23 +3,12 @@ extends CharacterBody2D
 signal player_damage_taken
 
 # DIRECTION CONSTANTS
-const DIR_LEFT = -1
-const DIR_NONE = 0
-const DIR_RIGHT = 1
+
+#removed the enum stuff because we're just gonna use .flip_h lol
 
 
-var floor_anims = {
-	DIR_LEFT: "walk_left",
-	DIR_NONE: "idle",
-	DIR_RIGHT: "walk_right"
-}
-var air_anims = {
-	DIR_LEFT: "jump_left",
-	DIR_NONE: "jump_straight",
-	DIR_RIGHT: "jump_right"
-}
 
-const SPEED = 600.0
+const SPEED = 350.0
 const JUMP_VELOCITY = -500.0
 const INVULNERABILITY = 0.5
 var timeSinceLastHit = 1
@@ -61,11 +50,20 @@ func _physics_process(delta: float) -> void:
 
 func _update_animation(direction: float) -> void:
 	var dir = int(sign(direction)) # maps any negative to –1, zero to 0, positive to +1
-	var anims = floor_anims if is_on_floor() else air_anims
-	animations.play(anims[dir])
-
-
-#Code here needs to get clean up (We need to decide how we update and track lives)
+	if is_on_floor() && velocity.x == 0:
+		animations.play("widle")
+	elif is_on_floor() && velocity.x != 0:
+		animations.play("wwalk")
+	elif !is_on_floor() &&  (velocity.y > 0):
+		animations.play("wjumpdown")
+	elif !is_on_floor() && (velocity.y <= 0):
+		animations.play("wjumpup")
+	
+	if velocity.x > 0:
+		animations.flip_h = true
+	if velocity.x < 0:
+		animations.flip_h = false
+	#Code here needs to get clean up (We need to decide how we update and track lives)
 func _update_size() -> void:
 	self.scale.x = powerUpModifier
 	self.scale.y = powerUpModifier
