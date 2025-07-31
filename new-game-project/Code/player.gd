@@ -7,7 +7,6 @@ signal player_damage_taken
 #removed the enum stuff because we're just gonna use .flip_h lol
 
 
-
 const SPEED = 350.0
 const JUMP_VELOCITY = -500.0
 const INVULNERABILITY = 0.5
@@ -17,26 +16,25 @@ var timeSinceLastHit = 1
 # Values that are computed every time it's accessed instead of being set once at runtime.
 var powerUpModifier:
 	get:
-		return (1 + (2 - 1) / 2.0) if Global.hasPowerUp else (1 + (1 - 1) / 2.0)
+		return (1 + (2 - 1) / 4.0) if Global.hasPowerUp else (1 + (1 - 1) / 4.0)
+
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 
 func _connect_item_to_signals() -> void:
 	self.player_damage_taken.connect(Global._on_player_damage_taken)
 
 func _ready() -> void:
-	self.scale.x = powerUpModifier
-	self.scale.y = powerUpModifier
+	_update_size()
 
 func _physics_process(delta: float) -> void:
 	# PHYSICS
 	timeSinceLastHit += delta
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * Global.fallingModifier * delta
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY * powerUpModifier
-		animations.play("jump_straight")
+		velocity.y = JUMP_VELOCITY * (1 + (powerUpModifier - 1) / 2)
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -46,24 +44,25 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	_update_animation(direction)
+	_update_animation()
 
-func _update_animation(direction: float) -> void:
-	var dir = int(sign(direction)) # maps any negative to –1, zero to 0, positive to +1
-	if is_on_floor() && velocity.x == 0:
-		animations.play("widle")
-	elif is_on_floor() && velocity.x != 0:
-		animations.play("wwalk")
-	elif !is_on_floor() &&  (velocity.y > 0):
-		animations.play("wjumpdown")
-	elif !is_on_floor() && (velocity.y <= 0):
-		animations.play("wjumpup")
-	
+func _update_animation() -> void:
+	if is_on_floor():
+		if velocity.x == 0:
+			animations.play("widle")
+		else:
+			animations.play("wwalk")
+	else:
+		if (velocity.y > 0):
+			animations.play("wjumpdown")
+		else:
+			animations.play("wjumpup")
+	#Nothing for when velocity.x == 0 because they should maintain the direction they are facing
 	if velocity.x > 0:
 		animations.flip_h = true
-	if velocity.x < 0:
+	elif velocity.x < 0:
 		animations.flip_h = false
-	#Code here needs to get clean up (We need to decide how we update and track lives)
+
 func _update_size() -> void:
 	self.scale.x = powerUpModifier
 	self.scale.y = powerUpModifier
@@ -76,7 +75,6 @@ func _on_powerup_collected() -> void:
 
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
-		Global.lives -= 1
 		if (Global.hasPowerUp == false):
 			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 		else:
@@ -92,9 +90,9 @@ func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
 		body.consume()
 		_update_size()
-	if (body.is_in_group("Enemy")):
+	elif (body.is_in_group("Enemy")):
 		takeDamage()
-	if (body.is_in_group("LethalObjects")):
+	elif (body.is_in_group("LethalObjects")):
 		print("Lethal Objects triggered")
 		takeDamage()
 	
@@ -102,6 +100,6 @@ func _on_hit_detection_body_entered(body: Node2D) -> void:
 func _on_attack_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
 		body.consume()
-	if (body.is_in_group("Enemy")):
+	elif (body.is_in_group("Enemy")):
 		body.killed()
 		print("Dealt damage!")

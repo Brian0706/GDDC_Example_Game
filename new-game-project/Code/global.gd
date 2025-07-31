@@ -9,12 +9,13 @@ var player = null
 var hasPowerUp = false
 var current_money = 0
 var stage = 1
-var lives = 1
+var fallingModifier = 1
 
 func changeStage(stageNum: int) -> void:
-	assert(stageNum < 1, "Stage number can't be less than 1.")		
+	assert(stageNum < 1, "Stage number can't be less than 1.")
 	stage = stageNum
 	print("Stage changed to " + str(stageNum))
+	stageNum += 1
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY
