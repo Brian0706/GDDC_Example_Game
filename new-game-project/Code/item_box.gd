@@ -4,6 +4,8 @@ var item: PackedScene
 @export
 var animation: AnimationPlayer
 
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+
 func _connect_item_to_signals(powerUP):
 	add_child(powerUP)
 	# Use the absolute path as paths relative to the scene can change during development
@@ -18,3 +20,4 @@ func _on_body_entered(body: Node2D) -> void:
 		call_deferred("_connect_item_to_signals", powerUP)
 		powerUP.position.y -= 20
 		print("Item box triggered!")
+		sprite.play("opened")

@@ -35,7 +35,3 @@ tile_set = ExtResource("10_hptm8")
 [node name="Victory" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(2425, 83)
 nextLevel = "res://Scenes/main.tscn"
-
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@33220" to="TileMapLayer/@Area2D@33220" method="_on_body_entered"]
