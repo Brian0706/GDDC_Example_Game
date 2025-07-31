@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name PowerUP extends CharacterBody2D
 
 signal powerup_collected
 

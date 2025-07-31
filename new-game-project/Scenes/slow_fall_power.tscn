@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8lhg75yhdai1"]
+
+[ext_resource type="Script" uid="uid://c178p25fl7li7" path="res://Code/slow_fall.gd" id="1_3bt2d"]
+[ext_resource type="Texture2D" uid="uid://12wjtivo82e3" path="res://Art/feather.png" id="2_3bt2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(24, 32)
+
+[node name="SpecialItem" type="CharacterBody2D" groups=["Items"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+script = ExtResource("1_3bt2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(0.384698, 0.21875)
+texture = ExtResource("2_3bt2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kry3j")

@@ -27,6 +27,10 @@ func death_handler() -> void:
 	
 func _on_powerup_collected() -> void:
 	hasPowerUp = true
+
+func _change_fallingMod() -> void:
+	fallingModifier = 0.5
+
 func _on_player_damage_taken() -> void:
 	if (Global.hasPowerUp == false):
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
