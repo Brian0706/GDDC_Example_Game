@@ -1,21 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7ct4t2omdyn0"]
+[gd_scene load_steps=4 format=3 uid="uid://lwywm3eb6vhn"]
 
-[ext_resource type="Script" uid="uid://ti7ca0rqbxub" path="res://Code/special_item.gd" id="1_1rc0x"]
-[ext_resource type="Texture2D" uid="uid://dxfl7cdsk8ih6" path="res://Art/ring.png" id="2_1rc0x"]
+[ext_resource type="Script" uid="uid://k7ay7gl0ykji" path="res://Code/fire_ball.gd" id="1_m5npc"]
+[ext_resource type="Texture2D" uid="uid://b7pbn0phxbvdb" path="res://Art/bomb.png" id="2_2mnh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(40, 34)
 
-[node name="SpecialItem" type="CharacterBody2D" groups=["Items"]]
+[node name="FireFlower" type="CharacterBody2D" groups=["Items"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 17
-script = ExtResource("1_1rc0x")
+script = ExtResource("1_m5npc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, -1)
 scale = Vector2(0.5625, 0.491803)
-texture = ExtResource("2_1rc0x")
+texture = ExtResource("2_2mnh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

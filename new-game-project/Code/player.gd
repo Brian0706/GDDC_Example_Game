@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
 signal player_damage_taken
+const projectile = preload("res://Scenes/fireball.tscn")
 
 # DIRECTION CONSTANTS
-
-#removed the enum stuff because we're just gonna use .flip_h lol
-
-
 const SPEED = 350.0
 const JUMP_VELOCITY = -500.0
 const INVULNERABILITY = 0.5
@@ -35,7 +32,13 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY * (1 + (powerUpModifier - 1) / 2)
-	
+	if Input.is_action_just_pressed("projectile_attack") and Global.hasProjectile:
+		print("test")
+		var attack = projectile.instantiate()
+		#Needed to prevent projectiles from moving with player
+		get_parent().add_child(attack)
+		attack.position.x = self.position.x
+		attack.position.y = self.position.y
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")

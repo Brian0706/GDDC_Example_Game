@@ -9,6 +9,7 @@ size = Vector2(24, 32)
 [node name="SpecialItem" type="CharacterBody2D" groups=["Items"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
+collision_mask = 17
 script = ExtResource("1_3bt2d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
