@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=9 format=4 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://250xtkjd2mjg" path="res://Scenes/basic_enemy.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://cpinnd6pqxgyu" path="res://Scenes/koppa.tscn" id="8_ynf5e"]
 [ext_resource type="TileSet" uid="uid://qd0ucl5veupp" path="res://Art/tileSets.tres" id="10_hptm8"]
 
 [node name="Controller" type="Node2D"]
@@ -21,6 +22,7 @@ position = Vector2(94, 256)
 
 [node name="DeathBox" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(615, 718)
+collision_mask = 255
 
 [node name="BasicEnemy" parent="." instance=ExtResource("8_344ge")]
 position = Vector2(1138, 308)
@@ -35,3 +37,6 @@ tile_set = ExtResource("10_hptm8")
 [node name="Victory" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(2425, 83)
 nextLevel = "res://Scenes/main.tscn"
+
+[node name="Koppa" parent="." instance=ExtResource("8_ynf5e")]
+position = Vector2(1271, 269)

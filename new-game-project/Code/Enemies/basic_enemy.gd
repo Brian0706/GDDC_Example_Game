@@ -12,10 +12,11 @@ var curState = 0
 func killed():
 	if curState != len(states) - 1:
 		self.set_collision_layer_value(2, false)
+		self.set_collision_layer_value(5, true)
 		animations.play("death_animation")
 		curState = len(states) - 1
 
-func dying(delta: float):
+func defeated(delta: float):
 	if !animations.is_playing():
 		call_deferred("queue_free")
 
@@ -36,7 +37,7 @@ func walking(delta: float):
 
 func _ready() -> void:
 	states.append(Callable(self, "walking"))
-	states.append(Callable(self, "dying"))
+	states.append(Callable(self, "defeated"))
 
 func _physics_process(delta: float) -> void:
 	states[curState].call(delta)

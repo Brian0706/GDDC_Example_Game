@@ -12,3 +12,5 @@ func _on_body_entered(body: Node2D) -> void:
 			hadPowerUP = true
 		call_deferred("reset")
 		body.takeDamage()
+	else:
+		body.queue_free()
