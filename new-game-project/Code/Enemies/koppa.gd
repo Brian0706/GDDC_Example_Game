@@ -4,12 +4,12 @@ extends Enemy
 @onready var itemMode: AnimatedSprite2D = $ShellMode
 
 func killed():
-    if curState != len(states) - 1:
+    if curState != 1:
         self.set_collision_layer_value(2, false)
         self.set_collision_layer_value(5, true)
         animations.visible = false
         itemMode.visible = true
-        curState = len(states) - 1
+        curState = 1
         respawnTimer.start()
 
 func defeated(delta: float) -> void:

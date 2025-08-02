@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=9 format=4 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://250xtkjd2mjg" path="res://Scenes/basic_enemy.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://250xtkjd2mjg" path="res://Scenes/Enemies/basic_enemy.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://nrqgtwwcv5y6" path="res://Scenes/Enemies/projectile_enemy.tscn" id="8_ynf5e"]
 [ext_resource type="TileSet" uid="uid://qd0ucl5veupp" path="res://Art/tileSets.tres" id="10_hptm8"]
 
 [node name="Controller" type="Node2D"]
@@ -37,6 +38,9 @@ tile_set = ExtResource("10_hptm8")
 position = Vector2(2425, 83)
 nextLevel = "res://Scenes/main.tscn"
 
+[node name="ProjectileEnemy" parent="." instance=ExtResource("8_ynf5e")]
+position = Vector2(1381, 269)
+
 [connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@27680" to="TileMapLayer/@Area2D@27680" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@37608" to="TileMapLayer/@Area2D@37608" method="_on_body_entered"]

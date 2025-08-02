@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://nrqgtwwcv5y6"]
 
-[ext_resource type="Script" uid="uid://21itg5fr7bys" path="res://Code/Enemies/basic_enemy.gd" id="1_v4nfh"]
+[ext_resource type="Script" uid="uid://c47qcnpnbit64" path="res://Code/Enemies/projectile_enemy.gd" id="1_0kgbb"]
 [ext_resource type="Texture2D" uid="uid://cbga2uidgxyjt" path="res://Art/placeholder_slime_death.png" id="2_stqnc"]
 [ext_resource type="Texture2D" uid="uid://bcw7uec01t010" path="res://Art/placeholder_slime_walk_right.png" id="3_ty3d7"]
 [ext_resource type="Texture2D" uid="uid://ci52bnsyaxlr6" path="res://Art/placeholder_slime_walk_left.png" id="4_0uivw"]
@@ -149,10 +149,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="BasicEnemy" type="CharacterBody2D" groups=["Enemy", "EnemyHurtbox"]]
+[node name="ProjectileEnemy" type="CharacterBody2D" groups=["Enemy", "EnemyHurtbox"]]
 collision_layer = 2
 collision_mask = 17
-script = ExtResource("1_v4nfh")
+script = ExtResource("1_0kgbb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.8125, 1.8125)
@@ -171,3 +171,9 @@ collision_mask = 16
 scale = Vector2(1.02629, 0.994507)
 target_position = Vector2(50, 40)
 collision_mask = 16
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

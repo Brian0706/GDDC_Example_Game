@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal player_damage_taken
-const projectile = preload("res://Scenes/fireball.tscn")
+const projectile = preload("res://Scenes/Powers/fireball.tscn")
 
 # DIRECTION CONSTANTS
 const SPEED = 350.0
@@ -42,7 +42,6 @@ func _physics_process(delta: float) -> void:
 
 	#Projectile attack
 	if Input.is_action_just_pressed("projectile_attack") and Global.hasProjectile:
-		print("test")
 		var attack = projectile.instantiate()
 		#Needed to prevent projectiles from moving with player
 		get_parent().add_child(attack)

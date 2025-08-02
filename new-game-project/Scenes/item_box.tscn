@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cb1isn0udac5l"]
 
 [ext_resource type="Script" uid="uid://x1f6hsm80ds2" path="res://Code/item_box.gd" id="1_b2omr"]
-[ext_resource type="PackedScene" uid="uid://lwywm3eb6vhn" path="res://Scenes/fire_flower.tscn" id="2_samsn"]
+[ext_resource type="PackedScene" uid="uid://lwywm3eb6vhn" path="res://Scenes/Powers/fire_flower.tscn" id="2_samsn"]
 [ext_resource type="Texture2D" uid="uid://mfu14d4px1k8" path="res://Art/wolfiespritesheet.png" id="3_samsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
