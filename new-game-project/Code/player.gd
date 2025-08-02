@@ -32,13 +32,6 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY * (1 + (powerUpModifier - 1) / 2)
-	if Input.is_action_just_pressed("projectile_attack") and Global.hasProjectile:
-		print("test")
-		var attack = projectile.instantiate()
-		#Needed to prevent projectiles from moving with player
-		get_parent().add_child(attack)
-		attack.position.x = self.position.x
-		attack.position.y = self.position.y
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
@@ -46,6 +39,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED * powerUpModifier
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	#Projectile attack
+	if Input.is_action_just_pressed("projectile_attack") and Global.hasProjectile:
+		print("test")
+		var attack = projectile.instantiate()
+		#Needed to prevent projectiles from moving with player
+		get_parent().add_child(attack)
+		attack.position.x = self.position.x
+		attack.position.y = self.position.y
+		if !animations.flip_h == true:
+			attack.direction = -1
+
 	move_and_slide()
 	_update_animation()
 
