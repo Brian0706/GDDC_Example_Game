@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wallCheck: RayCast2D = $WallCheck
@@ -6,12 +6,14 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 var direction = 1
+var states = []
+var curState = 0
 
 func killed():
-	call_deferred("queue_free")
 	animations.play("death_animation")
+	call_deferred("queue_free")
 
-func _physics_process(delta: float) -> void:
+func walking(delta: float):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -24,3 +26,11 @@ func _physics_process(delta: float) -> void:
 	# ANIMATION SECTION
 	animations.play("walk")
 	move_and_slide()
+
+
+func _ready() -> void:
+	states.append(Callable(self, "walking"))
+	states.append(Callable(self, "killed"))
+
+func _physics_process(delta: float) -> void:
+	states[curState].call(delta)
