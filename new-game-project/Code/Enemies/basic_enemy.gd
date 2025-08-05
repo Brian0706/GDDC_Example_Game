@@ -23,6 +23,7 @@ func defeated(delta: float):
 func walking(delta: float):
 	# Add the gravity.
 	if not is_on_floor():
+		print("hello")
 		velocity += get_gravity() * delta
 	velocity.x = direction * SPEED
 	if wallCheck.is_colliding() or not pitCheck.is_colliding():

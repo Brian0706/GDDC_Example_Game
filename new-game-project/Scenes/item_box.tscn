@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mfu14d4px1k8" path="res://Art/wolfiespritesheet.png" id="3_samsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
-size = Vector2(16, 12)
+size = Vector2(16, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_samsn"]
 atlas = ExtResource("3_samsn")
@@ -79,7 +79,7 @@ item = ExtResource("2_samsn")
 animation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_jjvhh")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -92,6 +92,7 @@ libraries = {
 }
 
 [node name="CharacterBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_b2omr")
