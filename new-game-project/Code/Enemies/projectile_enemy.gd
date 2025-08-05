@@ -1,4 +1,4 @@
-extends Enemy
+class_name ProjectileEnemy extends Enemy
 
 const projectile = preload("res://Scenes/Enemies/enemy_projectile.tscn")
 @onready var projectile_timer: Timer = $ProjectileTimer
@@ -8,7 +8,6 @@ func killed():
     projectile_timer.stop()
 
 func attack(delta: float) -> void:
-    print(direction * -1)
     var attack = projectile.instantiate()
 	#Needed to prevent projectiles from moving with player
     get_parent().add_child(attack)

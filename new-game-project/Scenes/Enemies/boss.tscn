@@ -106,4 +106,8 @@ wait_time = 4.0
 one_shot = true
 autostart = true
 
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="JumpAttackTimer" to="." method="_on_jump_attack_timer_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -36,7 +36,3 @@ nextLevel = "res://Scenes/main.tscn"
 
 [node name="Boss" parent="." instance=ExtResource("7_6bp64")]
 position = Vector2(1263, 232)
-
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@112494" to="TileMapLayer/@Area2D@112494" method="_on_body_entered"]
