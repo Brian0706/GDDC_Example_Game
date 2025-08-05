@@ -99,6 +99,8 @@ func _on_hit_detection_body_entered(body: Node2D) -> void:
 		_update_size()
 	elif (body.is_in_group("Enemy")):
 		takeDamage()
+	elif (body.is_in_group("Projectile")):
+		takeDamage()
 	elif (body.is_in_group("LethalObjects")):
 		print("Lethal Objects triggered")
 		takeDamage()

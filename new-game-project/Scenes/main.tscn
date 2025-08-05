@@ -40,7 +40,3 @@ nextLevel = "res://Scenes/main.tscn"
 
 [node name="ProjectileEnemy" parent="." instance=ExtResource("8_ynf5e")]
 position = Vector2(1381, 269)
-
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@37608" to="TileMapLayer/@Area2D@37608" method="_on_body_entered"]

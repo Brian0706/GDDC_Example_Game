@@ -6,10 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mxqg"]
 radius = 5.01896
 
-[node name="Projectile" type="CharacterBody2D"]
+[node name="Projectile" type="CharacterBody2D" groups=["Projectile"]]
 scale = Vector2(0.998258, 1)
 collision_layer = 2
-collision_mask = 16
 script = ExtResource("1_fplyy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,6 +20,7 @@ scale = Vector2(0.997961, 1)
 shape = SubResource("CircleShape2D_0mxqg")
 
 [node name="ObjectLifeSpan" type="Timer" parent="."]
+wait_time = 4.0
 one_shot = true
 autostart = true
 

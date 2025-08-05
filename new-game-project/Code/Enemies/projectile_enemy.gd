@@ -3,13 +3,18 @@ extends Enemy
 const projectile = preload("res://Scenes/Enemies/enemy_projectile.tscn")
 @onready var projectile_timer: Timer = $ProjectileTimer
 
+func killed():
+    super.killed()
+    projectile_timer.stop()
+
 func attack(delta: float) -> void:
+    print(direction * -1)
     var attack = projectile.instantiate()
 	#Needed to prevent projectiles from moving with player
     get_parent().add_child(attack)
     attack.position.x = self.position.x
     attack.position.y = self.position.y
-    attack.direction = int(sign(self.scale.x)) * -1
+    attack.direction = direction
     curState = 3
 
 func followThrough(delta: float) -> void:
