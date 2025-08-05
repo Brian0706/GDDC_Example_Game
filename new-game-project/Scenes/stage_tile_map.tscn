@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafvx2fc3j35h"]
+
+[ext_resource type="TileSet" uid="uid://qd0ucl5veupp" path="res://Art/tileSets.tres" id="1_22srj"]
+
+[node name="stage_tile_map" type="TileMapLayer"]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("1_22srj")

@@ -10,6 +10,7 @@ extends Node
 
 const STARTING_MONEY = 0
 const STARTING_STAGE = 1
+const NUM_OF_STAGES = 2
 
 var player = null
 var hasPowerUp = false
@@ -18,11 +19,16 @@ var current_money = 0
 var stage = 1
 var fallingModifier = 1
 
-func changeStage(stageNum: int) -> void:
-	assert(stageNum < 1, "Stage number can't be less than 1.")
-	stage = stageNum
-	print("Stage changed to " + str(stageNum))
-	stageNum += 1
+func nextStage() -> void:
+	assert(stage > 0, "Stage number can't be less than 1.")
+	stage += 1
+	print(stage)
+	if (stage > NUM_OF_STAGES):
+		print("complete!")
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	else:
+		print("Stage changed to " + str(stage))
+		get_tree().change_scene_to_file("res://Scenes/Levels/level-" + str(stage) + ".tscn")
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY

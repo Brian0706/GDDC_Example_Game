@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=4 uid="uid://h5ndalbedrj3"]
+
+[ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_rqojw"]
+[ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="2_00m8k"]
+[ext_resource type="PackedScene" uid="uid://cafvx2fc3j35h" path="res://Scenes/stage_tile_map.tscn" id="2_4lou3"]
+[ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="3_st3y7"]
+[ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_st3y7"]
+[ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="6_pvvfn"]
+
+[node name="Level-2" type="Node2D"]
+script = ExtResource("1_rqojw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_00m8k")]
+visible = false
+
+[node name="stage_tile_map" parent="." instance=ExtResource("2_4lou3")]
+tile_map_data = PackedByteArray("AAD//wgAAAABAAEAAAAAAAgAAAABAAEAAAABAAgAAAABAAEAAAACAAgAAAABAAEAAAADAAgAAAABAAEAAAAEAAgAAAABAAEAAAAFAAgAAAABAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAALAAgAAAABAAEAAAALAAcAAAABAAEAAAAMAAcAAAABAAEAAAANAAcAAAABAAEAAAAOAAgAAAABAAEAAAAPAAgAAAABAAEAAAAQAAgAAAABAAEAAAARAAgAAAABAAEAAAASAAgAAAABAAEAAAATAAgAAAABAAEAAAAUAAgAAAABAAEAAAAVAAgAAAABAAEAAAANAAgAAAABAAEAAAAMAAgAAAABAAEAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("3_st3y7")]
+
+[node name="DeathBox" parent="Player" instance=ExtResource("4_st3y7")]
+position = Vector2(615, 718)
+collision_mask = 255
+
+[node name="Victory" parent="." instance=ExtResource("6_pvvfn")]
+position = Vector2(1013, 310)

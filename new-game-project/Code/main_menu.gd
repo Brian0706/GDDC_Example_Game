@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	print("'New Game' button pressed")
 	Global.reset_game_state()
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/level-1.tscn")
 
 
 func _on_exit_button_pressed() -> void:
