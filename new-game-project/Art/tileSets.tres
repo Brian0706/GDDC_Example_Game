@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://qd0ucl5veupp"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://qd0ucl5veupp"]
 
 [ext_resource type="Texture2D" uid="uid://mfu14d4px1k8" path="res://Art/wolfiespritesheet.png" id="1_si5co"]
+[ext_resource type="PackedScene" uid="uid://8v337s561s3d" path="res://Scenes/victory.tscn" id="2_cjujb"]
 [ext_resource type="PackedScene" uid="uid://doilvwcf145cv" path="res://Scenes/coin.tscn" id="2_q2n37"]
 [ext_resource type="PackedScene" uid="uid://cb1isn0udac5l" path="res://Scenes/item_box.tscn" id="3_cjujb"]
 [ext_resource type="PackedScene" uid="uid://0xeryktikifd" path="res://Scenes/spike_trap.tscn" id="4_q2n37"]
@@ -55,6 +56,7 @@ texture = ExtResource("1_si5co")
 4:5/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_6iyac"]
+scenes/1/scene = ExtResource("2_cjujb")
 scenes/2/scene = ExtResource("2_q2n37")
 scenes/4/scene = ExtResource("3_cjujb")
 scenes/6/scene = ExtResource("4_q2n37")

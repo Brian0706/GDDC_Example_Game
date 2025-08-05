@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [node name="Victory" type="Area2D"]
-scale = Vector2(4.5, 4.5)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_pyhgl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

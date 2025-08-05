@@ -19,16 +19,19 @@ var current_money = 0
 var stage = 1
 var fallingModifier = 1
 
-func nextStage() -> void:
+func change_scene(path: String) -> void:
+	get_tree().change_scene_to_file(path)
+
+func next_stage() -> void:
 	assert(stage > 0, "Stage number can't be less than 1.")
 	stage += 1
 	print(stage)
 	if (stage > NUM_OF_STAGES):
 		print("complete!")
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		call_deferred("change_scene", "res://Scenes/main_menu.tscn")
 	else:
 		print("Stage changed to " + str(stage))
-		get_tree().change_scene_to_file("res://Scenes/Levels/level-" + str(stage) + ".tscn")
+		call_deferred("change_scene", "res://Scenes/Levels/level-" + str(stage) + ".tscn")
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY
