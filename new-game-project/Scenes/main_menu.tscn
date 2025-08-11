@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxjfr6kq81fos"]
+[gd_scene load_steps=3 format=3 uid="uid://cxjfr6kq81fos"]
 
 [ext_resource type="Script" uid="uid://bdti3vo7lx2hd" path="res://Code/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://csppo6dw5gn31" path="res://Art/wolfiemenu.png" id="2_48xlc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,18 +14,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
+[node name="Wolfiemenu" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6.75, 6.75)
+texture = ExtResource("2_48xlc")
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 140.0
+offset_right = 240.0
+offset_bottom = 260.0
+grow_horizontal = 2
 vertical = true
 
 [node name="NewGameButton" type="Button" parent="BoxContainer"]
 layout_mode = 2
-text = "New Game	"
+size_flags_vertical = 3
+text = "Press to Start"
 
 [node name="ExitButton" type="Button" parent="BoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Exit"
 
 [connection signal="pressed" from="BoxContainer/NewGameButton" to="." method="_on_button_pressed"]
