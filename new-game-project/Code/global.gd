@@ -8,6 +8,9 @@ extends Node
 # 4: fireballs
 # 5: terrain
 
+const FIRE_WOLFIE: Resource = preload("res://Art/Animations/Fire_Wolfie.tres")
+const DEFAULT_WOLFIE: Resource = preload("res://Art/Animations/Default_Wolfie.tres")
+const FLOATY_WOLFIE: Resource = preload("res://Art/Animations/Floaty_Wolfie.tres")
 const STARTING_MONEY = 0
 const STARTING_STAGE = 1
 const NUM_OF_STAGES = 2
@@ -46,9 +49,11 @@ func _on_powerup_collected() -> void:
 
 func _change_fallingMod() -> void:
 	fallingModifier = 0.95
+	player.changeCostume(FLOATY_WOLFIE)
 
 func _give_projectile() -> void:
 	hasProjectile = true
+	player.changeCostume(FIRE_WOLFIE)
 
 func _on_player_damage_taken() -> void:
 	if (Global.hasPowerUp == false):
@@ -57,3 +62,4 @@ func _on_player_damage_taken() -> void:
 		Global.hasPowerUp = false
 		fallingModifier = 1
 		hasProjectile = false
+		player.changeCostume(DEFAULT_WOLFIE)

@@ -92,6 +92,8 @@ func takeDamage():
 		timeSinceLastHit = 0
 		print("Damage taken!")
 
+func changeCostume(frames: Resource):
+	animations.set_sprite_frames(frames)
 
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
