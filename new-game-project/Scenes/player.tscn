@@ -116,6 +116,7 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 limit_left = 0
+limit_bottom = 650
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.25, 4.25)
