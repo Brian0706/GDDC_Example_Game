@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_retry_button_pressed() -> void:
 	Global.reset_game_state()
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/level-1.tscn")
 	print("Rety button pressed")
 
 func _on_main_menu_button_pressed() -> void:

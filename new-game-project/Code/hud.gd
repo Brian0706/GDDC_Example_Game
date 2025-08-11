@@ -6,6 +6,8 @@ extends Control
 
 func _ready() -> void:
 	updateLivesLabel()
+	updateStageLabel()
+	updateLivesLabel()
 
 # Updates respective labels when prompted
 
