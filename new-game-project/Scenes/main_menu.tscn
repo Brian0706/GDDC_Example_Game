@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxjfr6kq81fos"]
+[gd_scene load_steps=4 format=3 uid="uid://cxjfr6kq81fos"]
 
 [ext_resource type="Script" uid="uid://bdti3vo7lx2hd" path="res://Code/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://csppo6dw5gn31" path="res://Art/wolfiemenu.png" id="2_48xlc"]
+[ext_resource type="FontFile" uid="uid://cyhrf88whrson" path="res://Art/travsketfont.ttf" id="3_1ehe0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,22 +25,33 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -240.0
-offset_top = 140.0
-offset_right = 240.0
-offset_bottom = 260.0
+offset_left = -388.5
+offset_top = 170.08
+offset_right = 388.5
+offset_bottom = 496.08
 grow_horizontal = 2
+theme_override_constants/separation = 20
 vertical = true
 
 [node name="NewGameButton" type="Button" parent="BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.43134, 0.43134, 0.43134, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.771089, 0.689502, 0.042472, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_font_sizes/font_size = 80
 text = "Press to Start"
 
 [node name="ExitButton" type="Button" parent="BoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Exit"
+theme_override_colors/font_hover_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.772549, 0.690196, 0.0431373, 1)
+theme_override_fonts/font = ExtResource("3_1ehe0")
+theme_override_font_sizes/font_size = 55
+text = "Quit to Desktop"
 
 [connection signal="pressed" from="BoxContainer/NewGameButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

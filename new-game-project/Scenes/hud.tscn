@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://xgpivjl6iwaa"]
+[gd_scene load_steps=4 format=3 uid="uid://xgpivjl6iwaa"]
 
 [ext_resource type="Script" uid="uid://380ma0s61rq" path="res://Code/hud.gd" id="1_e0onf"]
+[ext_resource type="FontFile" uid="uid://cyhrf88whrson" path="res://Art/travsketfont.ttf" id="2_fccik"]
 
 [sub_resource type="GDScript" id="GDScript_e0onf"]
 script/source = "extends Label
@@ -25,20 +26,31 @@ offset_left = -225.0
 offset_right = 225.0
 offset_bottom = 93.0
 grow_horizontal = 2
+theme_override_constants/separation = 115
 alignment = 1
 
 [node name="LivesLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 60
 text = "LIVES: 0"
 vertical_alignment = 1
 
 [node name="StageLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 60
 text = "STAGE - 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,7 +59,12 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 60
 text = "COINS: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
