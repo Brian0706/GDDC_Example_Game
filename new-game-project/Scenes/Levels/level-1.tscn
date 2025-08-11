@@ -36,9 +36,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 [node name="Koppa" parent="." instance=ExtResource("6_bcch2")]
 position = Vector2(1243, 324)
 
+[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@31340" to="TileMapLayer/@Area2D@31340" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@22602" to="TileMapLayer/@Area2D@22602" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/Victory" to="TileMapLayer/Victory" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@31345" to="TileMapLayer/@Area2D@31345" method="_on_body_entered"]
-[node name="Boss" parent="." instance=ExtResource("7_55bcs")]
-position = Vector2(1263, 232)
