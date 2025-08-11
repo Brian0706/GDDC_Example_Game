@@ -18,4 +18,4 @@ func updateStageLabel():
 	stageLabel.text = "STAGE - " + str(Global.stage)
 
 func updateLivesLabel():
-	livesLabel.text = "Lives: " + ('2' if Global.hasPowerUp else '1')
+	livesLabel.text = "LIVES: " + ('2' if Global.hasPowerUp else '1')
