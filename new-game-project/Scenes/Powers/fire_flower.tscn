@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://lwywm3eb6vhn"]
+[gd_scene load_steps=6 format=3 uid="uid://lwywm3eb6vhn"]
 
 [ext_resource type="Script" uid="uid://k7ay7gl0ykji" path="res://Code/fire_ball.gd" id="1_m5npc"]
-[ext_resource type="Texture2D" uid="uid://b7pbn0phxbvdb" path="res://Art/bomb.png" id="2_2mnh5"]
+[ext_resource type="Texture2D" uid="uid://blghgmsrj13mf" path="res://Art/wolfiepowerups.png" id="2_vdaol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdaol"]
+atlas = ExtResource("2_vdaol")
+region = Rect2(51, 2, 10, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7tva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdaol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
-size = Vector2(40, 34)
+size = Vector2(24, 29)
 
 [node name="FireFlower" type="CharacterBody2D" groups=["Items"]]
 scale = Vector2(0.5, 0.5)
@@ -12,11 +27,11 @@ collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_m5npc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.38419e-07, -1)
-scale = Vector2(0.5625, 0.491803)
-texture = ExtResource("2_2mnh5")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p7tva")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_kry3j")

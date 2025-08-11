@@ -7,7 +7,7 @@
 size = Vector2(40.8795, 58.3466)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(42, 55)
+size = Vector2(44, 55)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
 atlas = ExtResource("5_fkybt")
@@ -94,7 +94,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
-size = Vector2(42.5, 7)
+size = Vector2(44, 7)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
@@ -129,7 +129,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
-position = Vector2(2.75, 33)
+position = Vector2(3, 33)
 shape = SubResource("RectangleShape2D_6t5aa")
 
 [connection signal="body_entered" from="HitDetection" to="." method="_on_hit_detection_body_entered"]
