@@ -6,6 +6,8 @@ extends Control
 
 func _ready() -> void:
 	updateLivesLabel()
+	updateStageLabel()
+	updateScoreLabel()
 
 # Updates respective labels when prompted
 
@@ -16,4 +18,4 @@ func updateStageLabel():
 	stageLabel.text = "STAGE - " + str(Global.stage)
 
 func updateLivesLabel():
-	livesLabel.text = "Lives: " + ('2' if Global.hasPowerUp else '1')
+	livesLabel.text = "Lives: " + str(Global.lives)

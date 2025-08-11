@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://byx8ajfgfbfft"]
 
-[ext_resource type="Script" uid="uid://ti7ca0rqbxub" path="res://Code/special_item.gd" id="1_vgnod"]
+[ext_resource type="Script" uid="uid://cbemr6ni5pjp3" path="res://Code/one_up.gd" id="1_vgnod"]
 [ext_resource type="Texture2D" uid="uid://blghgmsrj13mf" path="res://Art/wolfiepowerups.png" id="2_jc371"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgnod"]

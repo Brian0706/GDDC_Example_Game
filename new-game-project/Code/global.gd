@@ -48,9 +48,9 @@ func reset_player() -> void:
 	hasProjectile = false
 	player.changeCostume(DEFAULT_WOLFIE)
 
-func death_handler() -> void:
-	pass
-	
+func add_lives(amt: int):
+	lives += amt
+
 func _on_powerup_collected() -> void:
 	hasPowerUp = true
 
