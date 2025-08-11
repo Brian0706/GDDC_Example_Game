@@ -96,7 +96,7 @@ shape = SubResource("RectangleShape2D_00oey")
 position = Vector2(-5.68434e-14, -5.96046e-08)
 scale = Vector2(3.63953, 4.26836)
 sprite_frames = SubResource("SpriteFrames_t0fgp")
-animation = &"walk"
+animation = &"death_animation"
 
 [node name="WallCheck" type="RayCast2D" parent="."]
 target_position = Vector2(-50, 0)

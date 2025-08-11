@@ -21,6 +21,7 @@ var hasProjectile = false
 var current_money = 0
 var stage = 1
 var fallingModifier = 1
+var lives = 1
 
 func change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
@@ -41,6 +42,12 @@ func reset_game_state() -> void:
 	stage = STARTING_STAGE
 	hasPowerUp = false;
 
+func reset_player() -> void:
+	Global.hasPowerUp = false
+	fallingModifier = 1
+	hasProjectile = false
+	player.changeCostume(DEFAULT_WOLFIE)
+
 func death_handler() -> void:
 	pass
 	
@@ -57,9 +64,11 @@ func _give_projectile() -> void:
 
 func _on_player_damage_taken() -> void:
 	if (Global.hasPowerUp == false):
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		lives -= 1
+		if (lives == 0):
+			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		else:
+			call_deferred("change_scene", "res://Scenes/Levels/level-" + str(stage) + ".tscn")
+			reset_player()
 	else:
-		Global.hasPowerUp = false
-		fallingModifier = 1
-		hasProjectile = false
-		player.changeCostume(DEFAULT_WOLFIE)
+		reset_player()
