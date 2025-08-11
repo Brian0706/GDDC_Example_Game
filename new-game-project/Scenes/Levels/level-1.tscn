@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cafvx2fc3j35h" path="res://Scenes/stage_tile_map.tscn" id="5_ea6fs"]
 [ext_resource type="PackedScene" uid="uid://cpinnd6pqxgyu" path="res://Scenes/Enemies/koppa.tscn" id="6_bcch2"]
 
-[node name="Controller" type="Node2D"]
+[node name="Controller" type="Node"]
 script = ExtResource("1_m2erm")
 
 [node name="Wolfielevelbg" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 scale = Vector2(13, 13)
 texture = ExtResource("2_m2erm")
@@ -35,8 +36,32 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 
 [node name="Koppa" parent="." instance=ExtResource("6_bcch2")]
 position = Vector2(1243, 324)
+rotation = -3.14159
+scale = Vector2(1, -1)
 
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22602" to="TileMapLayer/@Area2D@22602" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/Victory" to="TileMapLayer/Victory" method="_on_body_entered"]
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Control" parent="BackgroundLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer/Background"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m2erm")
+expand_mode = 1
+
+[connection signal="body_entered" from="TileMapLayer/@Area2D@37228" to="TileMapLayer/@Area2D@37228" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@37229" to="TileMapLayer/@Area2D@37229" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@37230" to="TileMapLayer/@Area2D@37230" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@37236" to="TileMapLayer/@Area2D@37236" method="_on_body_entered"]
