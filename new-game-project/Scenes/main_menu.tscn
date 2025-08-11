@@ -16,7 +16,7 @@ script = ExtResource("1_28flt")
 
 [node name="Wolfiemenu" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(6.75, 6.75)
 texture = ExtResource("2_48xlc")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]

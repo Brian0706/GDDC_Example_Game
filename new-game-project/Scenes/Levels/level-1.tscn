@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=8 format=4 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_m2erm"]
+[ext_resource type="Texture2D" uid="uid://6o8vd4n0pmiy" path="res://Art/wolfielevelbg.png" id="2_m2erm"]
 [ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="2_no0si"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="3_q5dey"]
 [ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_3d564"]
@@ -10,10 +11,16 @@
 [node name="Controller" type="Node2D"]
 script = ExtResource("1_m2erm")
 
+[node name="Wolfielevelbg" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(13, 13)
+texture = ExtResource("2_m2erm")
+centered = false
+offset = Vector2(0, -46)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_no0si")]
-visible = false
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_q5dey")]
 position = Vector2(94, 256)
@@ -28,8 +35,3 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 
 [node name="Boss" parent="." instance=ExtResource("7_55bcs")]
 position = Vector2(1263, 232)
-
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/SpikeTrap" to="TileMapLayer/SpikeTrap" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@55224" to="TileMapLayer/@Area2D@55224" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/Victory" to="TileMapLayer/Victory" method="_on_body_entered"]
