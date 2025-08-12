@@ -46,6 +46,7 @@ func reset_player() -> void:
 	Global.hasPowerUp = false
 	fallingModifier = 1
 	hasProjectile = false
+	lives = 1
 	player.changeCostume(DEFAULT_WOLFIE)
 
 func add_lives(amt: int):

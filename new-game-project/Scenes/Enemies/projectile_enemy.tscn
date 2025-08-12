@@ -80,7 +80,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilxkt"]
-size = Vector2(57, 37)
+size = Vector2(30, 21)
 
 [node name="ProjectileEnemy" type="CharacterBody2D" groups=["Enemy", "EnemyHurtbox"]]
 scale = Vector2(-1, 1)
@@ -89,17 +89,17 @@ collision_mask = 17
 script = ExtResource("1_0kgbb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_t0fgp")
 animation = &"walk"
 
 [node name="WallCheck" type="RayCast2D" parent="."]
-target_position = Vector2(-50, 0)
+target_position = Vector2(-30, 0)
 collision_mask = 16
 
 [node name="PitCheck" type="RayCast2D" parent="."]
 scale = Vector2(1.02629, 0.994507)
-target_position = Vector2(-50, 40)
+target_position = Vector2(-26.3084, 20.1105)
 collision_mask = 16
 
 [node name="ProjectileTimer" type="Timer" parent="."]
@@ -108,7 +108,7 @@ one_shot = true
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.5, -2.5)
+position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_ilxkt")
 
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	timeSinceLastHit += delta
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * Global.fallingModifier * delta
+		velocity += get_gravity() * Global.fallingModifier * delta * 1.2
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
