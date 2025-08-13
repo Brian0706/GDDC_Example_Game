@@ -8,6 +8,8 @@ const projectile = preload("res://Scenes/Powers/fireball.tscn")
 @onready var jumpingSound: AudioStreamPlayer2D = $Sounds/Jump
 @onready var takeDamageSound: AudioStreamPlayer2D = $Sounds/Hurt
 @onready var pickUpSound: AudioStreamPlayer2D = $Sounds/PickItem
+@onready var attackSound: AudioStreamPlayer2D = $Sounds/Attack
+@onready var jumpAttackSound: AudioStreamPlayer2D = $Sounds/Stomp
 
 # DIRECTION CONSTANTS
 const SPEED = 350.0
@@ -55,6 +57,7 @@ func _physics_process(delta: float) -> void:
 	#Projectile attack
 	if Input.is_action_just_pressed("projectile_attack") and Global.hasProjectile:
 		var attack = projectile.instantiate()
+		attackSound.play()
 		#Needed to prevent projectiles from moving with player
 		get_parent().add_child(attack)
 		attack.position.x = self.position.x
@@ -122,5 +125,6 @@ func _on_attack_detection_body_entered(body: Node2D) -> void:
 		body.consume()
 	elif (body.is_in_group("Enemy")):
 		velocity.y = JUMP_VELOCITY / 2
+		jumpAttackSound.play()
 		body.killed()
 		print("Dealt damage!")

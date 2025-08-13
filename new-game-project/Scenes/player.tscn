@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3ulyxrycujua"]
+[gd_scene load_steps=12 format=3 uid="uid://3ulyxrycujua"]
 
 [ext_resource type="Script" uid="uid://ba2qaxinumy57" path="res://Code/player.gd" id="1_cvnsp"]
 [ext_resource type="SpriteFrames" uid="uid://cyuon64j8eagi" path="res://Art/Animations/Default_Wolfie.tres" id="2_cvnsp"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://bfo3s2guyo8y" path="res://Sounds/jump.mp3" id="5_fkybt"]
 [ext_resource type="AudioStream" uid="uid://dce3kcmxn51fe" path="res://Sounds/pick_up_item.mp3" id="6_3smsa"]
 [ext_resource type="AudioStream" uid="uid://lxad761we7d" path="res://Sounds/hurt.wav" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://vfn8jftmc8h5" path="res://Sounds/shoot_projectile.wav" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://cdmrhey4twmbf" path="res://Sounds/hit.mp3" id="8_8erm5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(40.8795, 58.3466)
@@ -71,6 +73,12 @@ stream = ExtResource("6_x3wgy")
 
 [node name="PickItem" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_3smsa")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("7_3smsa")
+
+[node name="Stomp" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("8_8erm5")
 
 [connection signal="body_entered" from="HitDetection" to="." method="_on_hit_detection_body_entered"]
 [connection signal="body_entered" from="AttackDetection" to="." method="_on_attack_detection_body_entered"]
