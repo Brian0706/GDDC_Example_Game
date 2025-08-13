@@ -7,7 +7,7 @@ var timeSinceLastHit = 1
 var direction = 1
 
 func kill_enemy(body: Node2D) -> void:
-    body.queue_free()
+    body.killed()
     self.queue_free()
 
 func _physics_process(delta: float) -> void:

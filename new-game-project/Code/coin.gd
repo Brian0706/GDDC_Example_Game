@@ -1,20 +1,21 @@
 extends Node2D
 
 signal coin_collected
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@onready var coinPickUp: AudioStreamPlayer2D = $CoinPickUp
+@onready var timer: Timer = $Timer
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("test")
 	if (body.name == "Player"):
 		Global.current_money += 1
+		print("test")
+		coinPickUp.play()
+		timer.start()
+		animationPlayer.play("collected")
 		emit_signal("coin_collected")
-		queue_free()
 		$"../../CanvasLayer/HUD".updateScoreLabel()
 		print("Picked up coin!")
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

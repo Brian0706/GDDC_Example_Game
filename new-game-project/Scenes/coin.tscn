@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://doilvwcf145cv"]
+[gd_scene load_steps=10 format=3 uid="uid://doilvwcf145cv"]
 
 [ext_resource type="Script" uid="uid://c8dh1mx7j7pq4" path="res://Code/coin.gd" id="1_2qo34"]
 [ext_resource type="Texture2D" uid="uid://mfu14d4px1k8" path="res://Art/wolfiespritesheet.png" id="2_jgi06"]
+[ext_resource type="AudioStream" uid="uid://bpfb4dubcsqnf" path="res://Sounds/coin.mp3" id="3_g537i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g537i"]
 atlas = ExtResource("2_jgi06")
@@ -21,6 +22,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgi06"]
 radius = 6.0
 
+[sub_resource type="Animation" id="Animation_g537i"]
+resource_name = "collected"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_h2p6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ffmqm"]
+_data = {
+&"RESET": SubResource("Animation_h2p6v"),
+&"collected": SubResource("Animation_g537i")
+}
+
 [node name="Coin" type="Node2D"]
 script = ExtResource("1_2qo34")
 
@@ -32,4 +70,17 @@ sprite_frames = SubResource("SpriteFrames_m55n1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_jgi06")
 
+[node name="CoinPickUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g537i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Timer")
+libraries = {
+&"": SubResource("AnimationLibrary_ffmqm")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://nrqgtwwcv5y6"]
+[gd_scene load_steps=15 format=3 uid="uid://nrqgtwwcv5y6"]
 
 [ext_resource type="Script" uid="uid://c47qcnpnbit64" path="res://Code/Enemies/projectile_enemy.gd" id="1_0kgbb"]
 [ext_resource type="Texture2D" uid="uid://0p3p2isrwpgl" path="res://Art/enBULL.png" id="2_ilxkt"]
+[ext_resource type="AudioStream" uid="uid://vfn8jftmc8h5" path="res://Sounds/shoot_projectile.wav" id="3_ldxb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldxb5"]
 atlas = ExtResource("2_ilxkt")
@@ -110,5 +111,8 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -0.5)
 shape = SubResource("RectangleShape2D_ilxkt")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ldxb5")
 
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
