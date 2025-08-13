@@ -25,7 +25,7 @@ radius = 5.01896
 radius = 6.09309
 
 [node name="Fireball" type="CharacterBody2D"]
-scale = Vector2(0.998258, 1)
+scale = Vector2(3, 3.006)
 collision_layer = 8
 collision_mask = 18
 script = ExtResource("1_0mxqg")

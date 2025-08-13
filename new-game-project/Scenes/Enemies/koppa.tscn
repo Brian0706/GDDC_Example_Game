@@ -87,7 +87,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24qov"]
-size = Vector2(36.5, 21)
+size = Vector2(31.25, 17.5)
 
 [node name="Koppa" type="CharacterBody2D" groups=["Enemy", "EnemyHurtbox"]]
 scale = Vector2(-1, 1)
@@ -96,7 +96,7 @@ collision_mask = 17
 script = ExtResource("1_i13fh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_t0fgp")
 animation = &"death_animation"
 
@@ -106,7 +106,7 @@ collision_mask = 16
 
 [node name="PitCheck" type="RayCast2D" parent="."]
 scale = Vector2(1.02629, 0.994507)
-target_position = Vector2(-30.2059, 24.1326)
+target_position = Vector2(-31.1803, 19.1049)
 collision_mask = 16
 
 [node name="Timer" type="Timer" parent="."]
@@ -114,7 +114,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.75, 1.5)
+position = Vector2(-2.625, 0.75)
 shape = SubResource("RectangleShape2D_24qov")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

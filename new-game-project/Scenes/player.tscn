@@ -34,8 +34,10 @@ visible = false
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_bottom = 1000
+drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.3
+drag_right_margin = 0.05
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.25, 4.25)
