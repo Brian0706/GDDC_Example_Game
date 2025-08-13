@@ -2,7 +2,12 @@ extends CharacterBody2D
 
 signal player_damage_taken
 const projectile = preload("res://Scenes/Powers/fireball.tscn")
-@onready var sounds: Node = $Sounds
+
+#Sounds
+@onready var walkingSound: AudioStreamPlayer2D = $Sounds/Walk
+@onready var jumpingSound: AudioStreamPlayer2D = $Sounds/Jump
+@onready var takeDamageSound: AudioStreamPlayer2D = $Sounds/Hurt
+@onready var pickUpSound: AudioStreamPlayer2D = $Sounds/PickItem
 
 # DIRECTION CONSTANTS
 const SPEED = 350.0
@@ -30,8 +35,14 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * Global.fallingModifier * delta * 1.2
+	elif velocity.x != 0:
+		walkingSound.play()
+	else:
+		walkingSound.stop()
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		jumpingSound.play()
 		velocity.y = JUMP_VELOCITY
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		attack.position.y = self.position.y
 		if !animations.flip_h == true:
 			attack.direction = -1
-
+	
 	move_and_slide()
 	_update_animation()
 
@@ -98,14 +109,11 @@ func changeCostume(frames: Resource):
 
 func _on_hit_detection_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Items")):
+		pickUpSound.play()
 		body.consume()
 		_update_size()
-	elif (body.is_in_group("Enemy")):
-		takeDamage()
-	elif (body.is_in_group("Projectile")):
-		takeDamage()
-	elif (body.is_in_group("LethalObjects")):
-		print("Lethal Objects triggered")
+	elif (body.is_in_group("Enemy")) or (body.is_in_group("LethalObjects")) or (body.is_in_group("Projectile")):
+		takeDamageSound.play()
 		takeDamage()
 	
 
