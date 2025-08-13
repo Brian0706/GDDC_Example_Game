@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal player_damage_taken
 const projectile = preload("res://Scenes/Powers/fireball.tscn")
+@onready var sounds: Node = $Sounds
 
 # DIRECTION CONSTANTS
 const SPEED = 350.0
