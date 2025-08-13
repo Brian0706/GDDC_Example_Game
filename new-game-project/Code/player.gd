@@ -30,6 +30,7 @@ func _connect_item_to_signals() -> void:
 
 func _ready() -> void:
 	_update_size()
+	_connect_item_to_signals()
 
 func _physics_process(delta: float) -> void:
 	# PHYSICS
@@ -97,13 +98,9 @@ func _on_powerup_collected() -> void:
 
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
-		if (Global.hasPowerUp == false):
-			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
-		else:
-			Global.hasPowerUp = false
 		$"../CanvasLayer/HUD".updateLivesLabel()
-		_update_size()
 		emit_signal("player_damage_taken")
+		_update_size()
 		timeSinceLastHit = 0
 		print("Damage taken!")
 
