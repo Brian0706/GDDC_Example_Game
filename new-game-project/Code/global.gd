@@ -46,6 +46,7 @@ func set_costume() -> void:
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY
 	stage = STARTING_STAGE
+	lives = 1
 	hasPowerUp = false;
 
 func reset_player() -> void:
