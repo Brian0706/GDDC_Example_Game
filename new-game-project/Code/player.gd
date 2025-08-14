@@ -31,6 +31,8 @@ func _connect_item_to_signals() -> void:
 func _ready() -> void:
 	_update_size()
 	_connect_item_to_signals()
+	Global.player = self
+	Global.set_costume()
 
 func _physics_process(delta: float) -> void:
 	# PHYSICS

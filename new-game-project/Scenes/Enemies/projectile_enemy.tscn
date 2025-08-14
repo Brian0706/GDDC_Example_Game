@@ -116,6 +116,7 @@ shape = SubResource("RectangleShape2D_ilxkt")
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ldxb5")
 volume_db = -1.0
+bus = &"Projectile"
 
 [node name="FireballHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0kgbb")

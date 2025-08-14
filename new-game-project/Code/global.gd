@@ -36,6 +36,12 @@ func next_stage() -> void:
 	else:
 		print("Stage changed to " + str(stage))
 		call_deferred("change_scene", "res://Scenes/Levels/level-" + str(stage) + ".tscn")
+
+func set_costume() -> void:
+	if hasProjectile:
+		player.changeCostume(FIRE_WOLFIE)
+	elif fallingModifier != 1:
+		player.changeCostume(FLOATY_WOLFIE)
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY
@@ -57,10 +63,12 @@ func _on_powerup_collected() -> void:
 
 func _change_fallingMod() -> void:
 	fallingModifier = 0.75
+	hasProjectile = false
 	player.changeCostume(FLOATY_WOLFIE)
 
 func _give_projectile() -> void:
 	hasProjectile = true
+	fallingModifier = 1
 	player.changeCostume(FIRE_WOLFIE)
 
 func _on_player_damage_taken() -> void:

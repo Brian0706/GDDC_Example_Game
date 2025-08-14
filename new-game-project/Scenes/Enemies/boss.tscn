@@ -94,7 +94,7 @@ sprite_frames = SubResource("SpriteFrames_t0fgp")
 animation = &"walk"
 
 [node name="WallCheck" type="RayCast2D" parent="."]
-target_position = Vector2(-50, 0)
+target_position = Vector2(-72, 0)
 collision_mask = 16
 
 [node name="PitCheck" type="RayCast2D" parent="."]
