@@ -22,7 +22,7 @@ animations = [{
 size = Vector2(7.02654, 8)
 
 [node name="boss_projectile" type="CharacterBody2D" groups=["Projectile"]]
-scale = Vector2(0.998258, 1)
+scale = Vector2(2, 2.004)
 collision_layer = 2
 script = ExtResource("1_avkvb")
 

@@ -3,18 +3,21 @@ class_name Enemy extends CharacterBody2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wallCheck: RayCast2D = $WallCheck
 @onready var pitCheck: RayCast2D = $PitCheck
+@onready var fireballHit: AudioStreamPlayer = $FireballHit
 
 const SPEED = 150.0
 var direction = 1
 var states = []
 var curState = 0
 
-func killed():
+func killed(fireBalled = false):
 	if curState != 1:
 		self.set_collision_layer_value(2, false)
 		self.set_collision_layer_value(5, true)
 		animations.play("death_animation")
 		curState = 1
+	if fireBalled:
+		fireballHit.play()
 
 func defeated(delta: float):
 	if !animations.is_playing():

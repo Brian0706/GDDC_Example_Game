@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var levelClear: AudioStreamPlayer2D = $ClearLevel
+@onready var levelClear: AudioStreamPlayer = $ClearLevel
 @onready var timer: Timer = $PlaySound
 
 func _on_body_entered(body: Node2D) -> void:

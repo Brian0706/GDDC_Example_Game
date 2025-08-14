@@ -56,7 +56,7 @@ func _on_powerup_collected() -> void:
 	hasPowerUp = true
 
 func _change_fallingMod() -> void:
-	fallingModifier = 0.95
+	fallingModifier = 0.75
 	player.changeCostume(FLOATY_WOLFIE)
 
 func _give_projectile() -> void:

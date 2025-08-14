@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpinnd6pqxgyu"]
+[gd_scene load_steps=16 format=3 uid="uid://cpinnd6pqxgyu"]
 
 [ext_resource type="Script" uid="uid://bsxpmnrn1lit2" path="res://Code/Enemies/koppa.gd" id="1_i13fh"]
+[ext_resource type="AudioStream" uid="uid://bbbflphba4k8h" path="res://Sounds/fireball_hit.wav" id="3_arfx3"]
 [ext_resource type="Texture2D" uid="uid://k67pd5y7gxn7" path="res://Art/enRAM.png" id="4_f6j01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24qov"]
@@ -116,5 +117,9 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.625, 0.75)
 shape = SubResource("RectangleShape2D_24qov")
+
+[node name="FireballHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_arfx3")
+bus = &"Projectile"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

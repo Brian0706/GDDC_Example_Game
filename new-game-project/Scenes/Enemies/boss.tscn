@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://hahiy3jo02bx"]
+[gd_scene load_steps=15 format=3 uid="uid://hahiy3jo02bx"]
 
 [ext_resource type="Script" uid="uid://bgl00il50iao4" path="res://Code/Enemies/boss.gd" id="1_p1f3m"]
 [ext_resource type="Texture2D" uid="uid://k67pd5y7gxn7" path="res://Art/enRAM.png" id="2_5afma"]
 [ext_resource type="Texture2D" uid="uid://b7obp8m5kmnyw" path="res://Art/enBOSS.png" id="3_5afma"]
+[ext_resource type="AudioStream" uid="uid://bbbflphba4k8h" path="res://Sounds/fireball_hit.wav" id="4_fdynt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00oey"]
 size = Vector2(55, 120)
@@ -108,6 +109,10 @@ autostart = true
 
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="FireballHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fdynt")
+bus = &"Projectile"
 
 [connection signal="timeout" from="JumpAttackTimer" to="." method="_on_jump_attack_timer_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

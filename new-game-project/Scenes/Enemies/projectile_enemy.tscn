@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://nrqgtwwcv5y6"]
+[gd_scene load_steps=16 format=3 uid="uid://nrqgtwwcv5y6"]
 
 [ext_resource type="Script" uid="uid://c47qcnpnbit64" path="res://Code/Enemies/projectile_enemy.gd" id="1_0kgbb"]
 [ext_resource type="Texture2D" uid="uid://0p3p2isrwpgl" path="res://Art/enBULL.png" id="2_ilxkt"]
 [ext_resource type="AudioStream" uid="uid://vfn8jftmc8h5" path="res://Sounds/shoot_projectile.wav" id="3_ldxb5"]
+[ext_resource type="AudioStream" uid="uid://bbbflphba4k8h" path="res://Sounds/fireball_hit.wav" id="4_0kgbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldxb5"]
 atlas = ExtResource("2_ilxkt")
@@ -104,7 +105,7 @@ target_position = Vector2(-26.3084, 20.1105)
 collision_mask = 16
 
 [node name="ProjectileTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 
@@ -114,5 +115,10 @@ shape = SubResource("RectangleShape2D_ilxkt")
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ldxb5")
+volume_db = -1.0
+
+[node name="FireballHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0kgbb")
+bus = &"Projectile"
 
 [connection signal="timeout" from="ProjectileTimer" to="." method="_on_projectile_timer_timeout"]

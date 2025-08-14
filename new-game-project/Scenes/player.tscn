@@ -61,24 +61,37 @@ shape = SubResource("RectangleShape2D_6t5aa")
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="Walk" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Walk" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_x3wgy")
+volume_db = 2.0
+bus = &"Player"
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Jump" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("5_fkybt")
-volume_db = -7.0
+volume_db = -15.0
+bus = &"Player"
 
-[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_x3wgy")
+bus = &"Player"
 
-[node name="PickItem" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="PickItem" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_3smsa")
+volume_db = -10.0
+bus = &"Player"
 
-[node name="Attack" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Attack" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_3smsa")
+volume_db = -3.0
+bus = &"Player"
 
-[node name="Stomp" type="AudioStreamPlayer2D" parent="Sounds"]
+[node name="Stomp" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("8_8erm5")
+volume_db = -1.0
+bus = &"Player"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
 
 [connection signal="body_entered" from="HitDetection" to="." method="_on_hit_detection_body_entered"]
 [connection signal="body_entered" from="AttackDetection" to="." method="_on_attack_detection_body_entered"]

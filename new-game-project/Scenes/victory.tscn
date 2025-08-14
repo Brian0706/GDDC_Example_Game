@@ -34,9 +34,9 @@ shape = SubResource("RectangleShape2D_8gbba")
 sprite_frames = SubResource("SpriteFrames_7yj50")
 
 [node name="PlaySound" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.5
 
-[node name="ClearLevel" type="AudioStreamPlayer2D" parent="."]
+[node name="ClearLevel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_o3goa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

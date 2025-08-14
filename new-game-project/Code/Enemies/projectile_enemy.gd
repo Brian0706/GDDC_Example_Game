@@ -4,8 +4,8 @@ const projectile = preload("res://Scenes/Enemies/enemy_projectile.tscn")
 @onready var projectile_timer: Timer = $ProjectileTimer
 @onready var shootProjectile: AudioStreamPlayer2D = $Shoot
 
-func killed():
-	super.killed()
+func killed(fireBalled = false):
+	super.killed(fireBalled)
 	projectile_timer.stop()
 
 func attack(delta: float) -> void:

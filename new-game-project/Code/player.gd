@@ -4,12 +4,12 @@ signal player_damage_taken
 const projectile = preload("res://Scenes/Powers/fireball.tscn")
 
 #Sounds
-@onready var walkingSound: AudioStreamPlayer2D = $Sounds/Walk
-@onready var jumpingSound: AudioStreamPlayer2D = $Sounds/Jump
-@onready var takeDamageSound: AudioStreamPlayer2D = $Sounds/Hurt
-@onready var pickUpSound: AudioStreamPlayer2D = $Sounds/PickItem
-@onready var attackSound: AudioStreamPlayer2D = $Sounds/Attack
-@onready var jumpAttackSound: AudioStreamPlayer2D = $Sounds/Stomp
+@onready var walkingSound: AudioStreamPlayer = $Sounds/Walk
+@onready var jumpingSound: AudioStreamPlayer = $Sounds/Jump
+@onready var takeDamageSound: AudioStreamPlayer = $Sounds/Hurt
+@onready var pickUpSound: AudioStreamPlayer = $Sounds/PickItem
+@onready var attackSound: AudioStreamPlayer = $Sounds/Attack
+@onready var jumpAttackSound: AudioStreamPlayer = $Sounds/Stomp
 
 # DIRECTION CONSTANTS
 const SPEED = 350.0
