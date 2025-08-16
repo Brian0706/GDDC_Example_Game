@@ -89,7 +89,7 @@ shape = SubResource("RectangleShape2D_00oey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5.68434e-14, -5.96046e-08)
-scale = Vector2(3.63953, 4.26836)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_t0fgp")
 animation = &"walk"
 
