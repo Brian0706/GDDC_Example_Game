@@ -75,7 +75,3 @@ tile_map_data = PackedByteArray("AAAAAAwAAAABAAAAAAABAAwAAAABAAAAAAACAAwAAAABAAA
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
-
-[connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/Victory" to="TileMapLayer/Victory" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@29872" to="TileMapLayer/@Area2D@29872" method="_on_body_entered"]

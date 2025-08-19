@@ -64,3 +64,9 @@ position = Vector2(7356, 516)
 
 [node name="Boss" parent="." instance=ExtResource("9_x4ryx")]
 position = Vector2(6557, 683)
+
+[connection signal="body_entered" from="stage_tile_map/ItemBox" to="stage_tile_map/ItemBox" method="_on_body_entered"]
+[connection signal="body_entered" from="stage_tile_map/@Area2D@26225" to="stage_tile_map/@Area2D@26225" method="_on_body_entered"]
+[connection signal="body_entered" from="stage_tile_map/@Area2D@26236" to="stage_tile_map/@Area2D@26236" method="_on_body_entered"]
+[connection signal="body_entered" from="stage_tile_map/Victory" to="stage_tile_map/Victory" method="_on_body_entered"]
+[connection signal="body_entered" from="stage_tile_map/@Area2D@26245" to="stage_tile_map/@Area2D@26245" method="_on_body_entered"]

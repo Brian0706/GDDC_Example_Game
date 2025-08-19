@@ -8,5 +8,5 @@ func defeated(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
     self.set_collision_layer_value(2, true)
-    self.set_collision_layer_value(5, false)
+    self.set_collision_layer_value(6, false)
     curState = 0

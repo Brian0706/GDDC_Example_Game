@@ -13,7 +13,7 @@ var curState = 0
 func killed(fireBalled = false):
 	if curState != 1:
 		self.set_collision_layer_value(2, false)
-		self.set_collision_layer_value(5, true)
+		self.set_collision_layer_value(6, true)
 		animations.play("death_animation")
 		curState = 1
 	if fireBalled:
