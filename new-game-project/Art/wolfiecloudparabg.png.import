@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit6rlt71mby7"
-path="res://.godot/imported/redSquare.png-c89e72ba7b18bfaad903d7089cbc6125.ctex"
+uid="uid://bfppwfs46s4mm"
+path="res://.godot/imported/wolfiecloudparabg.png-9397b9d9a8f57d31f281f4387c9e35d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/redSquare.png"
-dest_files=["res://.godot/imported/redSquare.png-c89e72ba7b18bfaad903d7089cbc6125.ctex"]
+source_file="res://Art/wolfiecloudparabg.png"
+dest_files=["res://.godot/imported/wolfiecloudparabg.png-9397b9d9a8f57d31f281f4387c9e35d8.ctex"]
 
 [params]
 

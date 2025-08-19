@@ -1,0 +1,87 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dcmttp1li6ge4"]
+
+[ext_resource type="Texture2D" uid="uid://do2icdnp03jj7" path="res://Art/wolfiefireflower.png" id="1_4a2nq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf3uq"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhfbu"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy2k2"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igwuv"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h6ou"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5cy2"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2y1w"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jckr"]
+atlas = ExtResource("1_4a2nq")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf3uq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhfbu")
+}],
+"loop": true,
+"name": &"widle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy2k2")
+}],
+"loop": true,
+"name": &"wjumpdown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igwuv")
+}],
+"loop": true,
+"name": &"wjumpup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h6ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5cy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2y1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jckr")
+}],
+"loop": true,
+"name": &"wwalk",
+"speed": 5.0
+}]

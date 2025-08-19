@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7pbn0phxbvdb"
-path="res://.godot/imported/bomb.png-6937313584c3ca6266f81708cb76ec40.ctex"
+uid="uid://do2icdnp03jj7"
+path="res://.godot/imported/wolfiefireflower.png-5ed56a6fafd574a4133d7ea2dbf8a607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/bomb.png"
-dest_files=["res://.godot/imported/bomb.png-6937313584c3ca6266f81708cb76ec40.ctex"]
+source_file="res://Art/wolfiefireflower.png"
+dest_files=["res://.godot/imported/wolfiefireflower.png-5ed56a6fafd574a4133d7ea2dbf8a607.ctex"]
 
 [params]
 

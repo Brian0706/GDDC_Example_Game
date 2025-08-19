@@ -8,6 +8,9 @@ extends Node
 # 4: fireballs
 # 5: terrain
 
+const FIRE_WOLFIE: Resource = preload("res://Art/Animations/Fire_Wolfie.tres")
+const DEFAULT_WOLFIE: Resource = preload("res://Art/Animations/Default_Wolfie.tres")
+const FLOATY_WOLFIE: Resource = preload("res://Art/Animations/Floaty_Wolfie.tres")
 const STARTING_MONEY = 0
 const STARTING_STAGE = 1
 const NUM_OF_STAGES = 2
@@ -18,6 +21,7 @@ var hasProjectile = false
 var current_money = 0
 var stage = 1
 var fallingModifier = 1
+var lives = 1
 
 func change_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
@@ -32,28 +36,49 @@ func next_stage() -> void:
 	else:
 		print("Stage changed to " + str(stage))
 		call_deferred("change_scene", "res://Scenes/Levels/level-" + str(stage) + ".tscn")
+
+func set_costume() -> void:
+	if hasProjectile:
+		player.changeCostume(FIRE_WOLFIE)
+	elif fallingModifier != 1:
+		player.changeCostume(FLOATY_WOLFIE)
 	
 func reset_game_state() -> void:
 	current_money = STARTING_MONEY
 	stage = STARTING_STAGE
+	lives = 1
 	hasPowerUp = false;
 
-func death_handler() -> void:
-	pass
-	
+func reset_player() -> void:
+	Global.hasPowerUp = false
+	fallingModifier = 1
+	hasProjectile = false
+	lives = 1
+	player.changeCostume(DEFAULT_WOLFIE)
+
+func add_lives(amt: int):
+	lives += amt
+
 func _on_powerup_collected() -> void:
 	hasPowerUp = true
 
 func _change_fallingMod() -> void:
-	fallingModifier = 0.95
+	fallingModifier = 0.75
+	hasProjectile = false
+	player.changeCostume(FLOATY_WOLFIE)
 
 func _give_projectile() -> void:
 	hasProjectile = true
+	fallingModifier = 1
+	player.changeCostume(FIRE_WOLFIE)
 
 func _on_player_damage_taken() -> void:
 	if (Global.hasPowerUp == false):
-		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		lives -= 1
+		if (lives == 0):
+			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		else:
+			call_deferred("change_scene", "res://Scenes/Levels/level-" + str(stage) + ".tscn")
+			reset_player()
 	else:
-		Global.hasPowerUp = false
-		fallingModifier = 1
-		hasProjectile = false
+		reset_player()

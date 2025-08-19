@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://hnvbdl7t312m"]
+[gd_scene load_steps=6 format=3 uid="uid://hnvbdl7t312m"]
 
 [ext_resource type="Script" uid="uid://c4t4vs3ny3c1f" path="res://Code/Enemies/enemy_projectile.gd" id="1_fplyy"]
-[ext_resource type="Texture2D" uid="uid://b7pbn0phxbvdb" path="res://Art/bomb.png" id="2_bc6kj"]
+[ext_resource type="Texture2D" uid="uid://blghgmsrj13mf" path="res://Art/wolfiepowerups.png" id="2_fplyy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0mxqg"]
-radius = 5.01896
+[sub_resource type="AtlasTexture" id="AtlasTexture_df0ks"]
+atlas = ExtResource("2_fplyy")
+region = Rect2(69, 6, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e83gl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df0ks")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aqdx"]
+size = Vector2(6.02275, 8)
 
 [node name="Projectile" type="CharacterBody2D" groups=["Projectile"]]
 scale = Vector2(0.998258, 1)
@@ -12,13 +27,14 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_fplyy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_bc6kj")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_e83gl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.00175, 0)
 scale = Vector2(0.997961, 1)
-shape = SubResource("CircleShape2D_0mxqg")
+shape = SubResource("RectangleShape2D_6aqdx")
 
 [node name="ObjectLifeSpan" type="Timer" parent="."]
 wait_time = 4.0

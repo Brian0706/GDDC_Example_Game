@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://12wjtivo82e3"
-path="res://.godot/imported/feather.png-2a4e1f7f1339d15c497c380772790f86.ctex"
+uid="uid://d3t7u45i5krld"
+path="res://.godot/imported/wolfiemushroom.png-d5c788ad89c5096144e211a2e6f91cfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/feather.png"
-dest_files=["res://.godot/imported/feather.png-2a4e1f7f1339d15c497c380772790f86.ctex"]
+source_file="res://Art/wolfiemushroom.png"
+dest_files=["res://.godot/imported/wolfiemushroom.png-d5c788ad89c5096144e211a2e6f91cfc.ctex"]
 
 [params]
 

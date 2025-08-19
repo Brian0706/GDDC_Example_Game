@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmh1xdm2snd55"]
+[gd_scene load_steps=6 format=3 uid="uid://dmh1xdm2snd55"]
 
 [ext_resource type="Script" uid="uid://c6guh28b2pajb" path="res://Code/game_over.gd" id="1_ojehl"]
+[ext_resource type="Texture2D" uid="uid://6o8vd4n0pmiy" path="res://Art/wolfielevelbg.png" id="2_8fo1c"]
+[ext_resource type="FontFile" uid="uid://cyhrf88whrson" path="res://Art/travsketfont.ttf" id="3_ek8ke"]
+[ext_resource type="AudioStream" uid="uid://dy0pjb6idtw23" path="res://Sounds/game_over.wav" id="4_eoghk"]
+[ext_resource type="AudioStream" uid="uid://dbj74m2v2yt6u" path="res://Sounds/button_press.wav" id="5_14u15"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -11,6 +15,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ojehl")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8fo1c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.226042
+anchor_top = 0.347222
+anchor_right = 0.773958
+anchor_bottom = 0.498148
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.980392, 0.87451, 0.87451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 80
+text = "You Died... Try Again?
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -18,20 +54,46 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -33.0
-offset_right = 48.0
-offset_bottom = 33.0
+offset_left = -238.0
+offset_top = 2.83002
+offset_right = 238.0
+offset_bottom = 198.83
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="RetryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.772549, 0.690196, 0.0431373, 1)
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 80
 text = "Retry"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0.431373, 0.431373, 0.431373, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.772549, 0.690196, 0.0431373, 1)
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_font_sizes/font_size = 80
 text = "Main Menu"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="GameLost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eoghk")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_14u15")
 
 [connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

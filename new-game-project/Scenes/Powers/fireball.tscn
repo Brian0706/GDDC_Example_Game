@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://da4jylcp4q18a"]
+[gd_scene load_steps=7 format=3 uid="uid://da4jylcp4q18a"]
 
 [ext_resource type="Script" uid="uid://ci6o7vyqvbavw" path="res://Code/fireball.gd" id="1_0mxqg"]
-[ext_resource type="Texture2D" uid="uid://b7pbn0phxbvdb" path="res://Art/bomb.png" id="1_xi7wk"]
+[ext_resource type="Texture2D" uid="uid://blghgmsrj13mf" path="res://Art/wolfiepowerups.png" id="2_ypo0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx42s"]
+atlas = ExtResource("2_ypo0v")
+region = Rect2(69, 6, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klhk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx42s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mxqg"]
 radius = 5.01896
@@ -10,17 +25,16 @@ radius = 5.01896
 radius = 6.09309
 
 [node name="Fireball" type="CharacterBody2D"]
-scale = Vector2(0.998258, 1)
+scale = Vector2(3, 3.006)
 collision_layer = 8
 collision_mask = 18
 script = ExtResource("1_0mxqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_xi7wk")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_klhk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.997961, 1)
 shape = SubResource("CircleShape2D_0mxqg")
 
 [node name="HitDetection" type="Area2D" parent="."]
@@ -31,6 +45,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_ne4qj")
 
 [node name="ObjectLifeSpan" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 autostart = true
 
