@@ -53,7 +53,6 @@ func reset_player() -> void:
 	Global.hasPowerUp = false
 	fallingModifier = 1
 	hasProjectile = false
-	lives = 1
 	player.changeCostume(DEFAULT_WOLFIE)
 
 func add_lives(amt: int):
@@ -74,6 +73,7 @@ func _give_projectile() -> void:
 
 func _on_player_damage_taken() -> void:
 	if (Global.hasPowerUp == false):
+		print(lives)
 		lives -= 1
 		if (lives == 0):
 			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
