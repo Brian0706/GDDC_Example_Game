@@ -95,10 +95,12 @@ func _update_size() -> void:
 func _on_powerup_collected() -> void:
 	_update_size()
 	Global.hasPowerUp = true
+	$"../CanvasLayer/HUD".updateLivesLabel()
 	pass
 
 func takeDamage():
 	if (timeSinceLastHit > INVULNERABILITY):
+		$"../CanvasLayer/HUD".updateLivesLabel()
 		emit_signal("player_damage_taken")
 		_update_size()
 		timeSinceLastHit = 0
