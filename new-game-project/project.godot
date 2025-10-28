@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="GDDC_UIUX_Workshop"
+config/name="GDDC_Example_Game"
 run/main_scene="uid://cxjfr6kq81fos"
-config/features=PackedStringArray("4.5", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://Art/icon.svg"
 
 [autoload]

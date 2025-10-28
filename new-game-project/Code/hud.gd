@@ -1,23 +1,21 @@
 extends Control
-
-# Variables for when the HUD is first created
-@onready var coinLabel= $HBoxContainer/CoinLabel
-@onready var stageLabel = $HBoxContainer/StageLabel
-@onready var livesLabel = $HBoxContainer/LivesLabel
+# Called when the node enters the scene tree for the first time.
+@onready var coinLabel = $CanvasLayer/HBoxContainer/CoinLabel
+@onready var stageLabel = $CanvasLayer/HBoxContainer/StageLabel
+@onready var livesLabel = $CanvasLayer/HBoxContainer/LivesLabel
 
 func _ready() -> void:
 	updateLivesLabel()
-	updateScoreLabel()
 	updateStageLabel()
+	updateScoreLabel()
+
+# Updates respective labels when prompted
 
 func updateScoreLabel():
-	coinLabel.text = "Coins: " + str(Global.current_money)
-	print("score updated")
-	
+	coinLabel.text = "COINS: " + str(Global.current_money)
+
 func updateStageLabel():
-	stageLabel.text = "Level: " + str(Global.stage)
-	print("level updated")
-	
+	stageLabel.text = "STAGE - " + str(Global.stage)
+
 func updateLivesLabel():
 	livesLabel.text = "Lives: " + str(Global.lives)
-	print("lives updated")
