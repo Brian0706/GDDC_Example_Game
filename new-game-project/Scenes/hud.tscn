@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://0rurdujikpi1"]
+
+[ext_resource type="Script" uid="uid://cm6hx72la52eu" path="res://Code/hud.gd" id="1_bjfho"]
+[ext_resource type="FontFile" uid="uid://won82ugh6eto" path="res://Art/retro/retro.ttf" id="1_e0onf"]
+[ext_resource type="LabelSettings" uid="uid://cf55jsnmti67k" path="res://Scenes/hud.tres" id="2_fccik"]
+
+[sub_resource type="Theme" id="Theme_e0onf"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_bjfho")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 1920.0
+offset_bottom = 150.0
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="LivesLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_e0onf")
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 80
+text = "Lives: 1"
+label_settings = ExtResource("2_fccik")
+
+[node name="StageLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 80
+text = "Level: 1"
+label_settings = ExtResource("2_fccik")
+
+[node name="CoinLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 80
+text = "Coins: 0"
+label_settings = ExtResource("2_fccik")
