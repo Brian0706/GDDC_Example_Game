@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cyhrf88whrson"
-path="res://.godot/imported/travsketfont.ttf-62a2d9e46715ff1f7a94e0edb830a291.fontdata"
+uid="uid://won82ugh6eto"
+path="res://.godot/imported/retro.ttf-f71fa3ae5e5c945288bb47cafa3a78c2.fontdata"
 
 [deps]
 
-source_file="res://Art/travsketfont.ttf"
-dest_files=["res://.godot/imported/travsketfont.ttf-62a2d9e46715ff1f7a94e0edb830a291.fontdata"]
+source_file="res://Art/retro/retro.ttf"
+dest_files=["res://.godot/imported/retro.ttf-f71fa3ae5e5c945288bb47cafa3a78c2.fontdata"]
 
 [params]
 

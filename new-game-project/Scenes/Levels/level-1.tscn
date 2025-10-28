@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://c54nfbrhwnhd"]
+[gd_scene load_steps=10 format=4 uid="uid://c54nfbrhwnhd"]
 
 [ext_resource type="Script" uid="uid://d2o62fs8njoas" path="res://Code/main.gd" id="1_m2erm"]
 [ext_resource type="Texture2D" uid="uid://6o8vd4n0pmiy" path="res://Art/wolfielevelbg.png" id="2_m2erm"]
-[ext_resource type="PackedScene" uid="uid://xgpivjl6iwaa" path="res://Scenes/hud.tscn" id="2_no0si"]
 [ext_resource type="Texture2D" uid="uid://bfppwfs46s4mm" path="res://Art/wolfiecloudparabg.png" id="3_no0si"]
 [ext_resource type="PackedScene" uid="uid://3ulyxrycujua" path="res://Scenes/player.tscn" id="3_q5dey"]
 [ext_resource type="PackedScene" uid="uid://ber431k58enqq" path="res://Scenes/death_box.tscn" id="4_3d564"]
@@ -67,10 +66,6 @@ position = Vector2(9, 534)
 [node name="Wall2" parent="Boundary" instance=ExtResource("7_m2erm")]
 position = Vector2(5707, 547)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_no0si")]
-
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_q5dey")]
 position = Vector2(117, 833)
 collision_mask = 48
@@ -86,8 +81,7 @@ current = true
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_q5dey")
 autoplay = true
-bus = &"Music"
 
 [connection signal="body_entered" from="TileMapLayer/ItemBox" to="TileMapLayer/ItemBox" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/Victory" to="TileMapLayer/Victory" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22040" to="TileMapLayer/@Area2D@22040" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@106093" to="TileMapLayer/@Area2D@106093" method="_on_body_entered"]

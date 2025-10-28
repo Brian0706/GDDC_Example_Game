@@ -13,9 +13,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		timer.start()
 		animationPlayer.play("collected")
 		emit_signal("coin_collected")
-		$"../../CanvasLayer/HUD".updateScoreLabel()
 		print("Picked up coin!")
-
 
 func _on_timer_timeout() -> void:
 	queue_free()
